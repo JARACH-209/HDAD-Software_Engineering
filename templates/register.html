@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/login.css')}}"
+    />
+  </head>
+  {% import "bootstrap/wtf.html" as wtf %}
+  <body>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a href="{{url_for('index')}}" class="home">Home</a>
+      </div>
+      <div class="navbar-right">
+        <a href="{{ url_for('login') }}" class="profile">Sign In</a>
+        <a href="{{ url_for('register') }}" class="logout">Sign Up</a>
+      </div>
+    </div>
+    <div class="flex-container">
+      <div class="row">
+        <form method="POST" action="/register">
+          <div class="flex-item"><h1>Sign Up</h1></div>
+          {{ form.hidden_tag() }}
+          <div class="flex-item">{{ form.DocName(placeholder='name') }}</div>
+
+          <div class="flex-item">
+            {{ form.DocHospital(placeholder='hospital') }}
+          </div>
+          <div class="flex-item">
+            {{ form.password(placeholder='password') }}
+          </div>
+          <div class="flex-item"><button type="submit">Sign Up</button></div>
+        </form>
+        {% if x==1 %}
+        <div class="flex-item">
+          <h2>Password must be minimum 8 and maximum 80 character long</h2>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>
