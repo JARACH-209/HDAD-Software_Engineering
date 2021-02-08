@@ -1,0 +1,191 @@
+@font-face {
+  font-family: varela;
+  src: url('../Fonts/Varela-Regular.ttf');
+}
+
+@font-face {
+  font-family: mostserrat;
+  src: url('../Fonts/Montserrat-Regular.ttf');
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-image: linear-gradient(
+    to right bottom,
+    #74166a,
+    #6f106e,
+    #690b72,
+    #620777,
+    #59067c,
+    #4f0a7a,
+    #450d78,
+    #3b0f75,
+    #30116a,
+    #27125f,
+    #1e1153,
+    #171048
+  );
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar {
+  display: flex;
+  position: fixed;
+  top: 32px;
+  font-family: varela;
+  height: 62px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(3px);
+  width: 90%;
+  border-radius: 31px;
+  align-items: center;
+  font-size: 1.5rem;
+  justify-content: space-between;
+}
+a {
+  color: white;
+}
+
+a:hover {
+  color: #ffb550;
+}
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+.navbar-left a {
+  margin-left: 32px;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+.navbar a:hover {
+  font-size: 1.7rem;
+}
+.navbar-right a {
+  margin-right: 32px;
+  font-size: 1.5rem;
+}
+.flex-container {
+  height: 85%;
+  padding: 0;
+  margin-top: 80px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.row {
+  width: 400px;
+}
+.flex-item {
+  width: 400px;
+  font-size: 2em;
+  text-align: center;
+}
+
+#hidden {
+  margin-top: 10px;
+}
+
+.flex-item h1 {
+  width: 400px;
+  margin-bottom: 30px;
+  margin-top: 0;
+  font-family: varela;
+  font-size: 2rem;
+  color: white;
+}
+.flex-item h2 {
+  width: 400px;
+  margin-bottom: 30px;
+  margin-top: 0;
+  font-family: varela;
+  font-size: 1rem;
+  color: white;
+}
+
+button {
+  width: 400px;
+  border-radius: 20px;
+  height: 64px;
+  outline: none;
+  margin-top: 40px;
+  background-color: #f9f871;
+  border: none;
+  margin-bottom: 50px;
+  justify-content: center;
+  align-items: center;
+  font-family: varela;
+  height: 64px;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color: #821667;
+}
+
+button:hover {
+  font-size: 1.6rem;
+  background-color: #ffb550;
+}
+button:active {
+  transform: translateY(4px);
+}
+
+input {
+  width: 360px;
+  border-radius: 20px;
+  height: 55px;
+  margin-top: 20px;
+  padding-left: 40px;
+  outline: none;
+  background-color: #c43a5f;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  font-family: varela;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: varela;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+  margin: auto;
+}
+
+::placeholder {
+  color: white;
+}
+
+label {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+  justify-content: center;
+}
+#remember {
+  width: 20px;
+  height: 20px;
+
+  margin: 0;
+  margin-right: 10px;
+  font-size: 20px;
+  font-family: varela;
+  background-color: red;
+}

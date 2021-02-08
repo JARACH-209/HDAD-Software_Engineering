@@ -1,0 +1,123 @@
+@font-face {
+  font-family: varela;
+  src: url('../Fonts/Varela-Regular.ttf');
+}
+
+@font-face {
+  font-family: mostserrat;
+  src: url('../Fonts/Montserrat-Regular.ttf');
+}
+@font-face {
+  font-family: bahnschrift;
+  src: url('../Fonts/BAHNSCHRIFT.TTF');
+}
+
+.container-bottom {
+  position: fixed;
+  bottom: 32px;
+  width: 90%;
+  height: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0;
+}
+
+.container {
+  display: flex;
+  width: 95vw;
+  height: 80vh;
+  margin-top: 110px;
+  justify-content: space-between;
+}
+
+.container1 {
+  display: flex;
+  flex-direction: column;
+  width: 15vw;
+
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.container1 span {
+  font-size: 12vh;
+  margin-bottom: 0;
+  color: white;
+  font-family: bahnschrift;
+}
+.container1 p {
+  font-size: 2vh;
+  font-family: varela;
+  transform: translateY(-3vh);
+  color: white;
+}
+
+.container1-1 {
+  width: 15vw;
+}
+.container1-2 {
+  width: 15vw;
+}
+.container1-3 {
+  width: 15vw;
+}
+
+.container2 {
+  display: flex;
+  width: 25vw;
+  height: 75vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.container2 span {
+  color: white;
+  font-family: varela;
+  font-size: 4vh;
+}
+
+.container-filler {
+  width: 5vw;
+}
+
+.container3 {
+  width: 40vw;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container3-1 {
+  height: 8vh;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+.container3-1 p {
+  font-size: 5vh;
+  color: white;
+  font-family: varela;
+}
+
+.container3-2 {
+  height: 45vh;
+}
+.container3-2 p {
+  font-size: 3vh;
+  color: white;
+  font-family: mostserrat;
+}
+
+.slideshow-container {
+  width: 35vw;
+  height: 45vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

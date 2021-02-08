@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/main.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/login.css')}}"
+    />
+    <style>
+      .container1 {
+        height: 50vh;
+        
+      }
+    </style>
+  </head>
+  {% import "bootstrap/wtf.html" as wtf %}
+  <body>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a href="{{url_for('index')}}" class="home">HDAD</a>
+      </div>
+      <div class="navbar-right">
+        <a href="{{ url_for('register') }}" class="logout">SIGN UP</a>
+        <a href="{{ url_for('login') }}" class="profile">SIGN IN</a>
+      </div>
+    </div>
+    <div class="container">
+      <div class="container1">
+        <form method="POST" action="/login">
+        {{ form.hidden_tag() }}
+        <div class="container1-1"><h1>Enter Details</h1></div>
+        <div class="container-filler">
+          <h2>{{message}}</h2>
+        </div>
+
+        <div class="container1-2">{{ form.username(placeholder='Username') }}</div>
+        <div class="container1-3">
+          {{ form.password(placeholder='Password') }}
+        </div>
+       
+        <div class="container1-5">
+          <button type="submit">SIGN IN</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+</html>

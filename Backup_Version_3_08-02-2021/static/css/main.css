@@ -1,0 +1,98 @@
+@font-face {
+  font-family: varela;
+  src: url('../Fonts/Varela-Regular.ttf');
+}
+
+@font-face {
+  font-family: mostserrat;
+  src: url('../Fonts/Montserrat-Regular.ttf');
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-image: linear-gradient(
+    to right top,
+    #c96ca5,
+    #c66cb1,
+    #c16dbe,
+    #b96fcb,
+    #ad72d9,
+    #a16fdd,
+    #946de0,
+    #856be4,
+    #7862de,
+    #6a59d7,
+    #5c50d1,
+    #4c47cb
+  );
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar {
+  display: flex;
+  position: fixed;
+  top: 32px;
+  font-family: varela;
+  height: 62px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(3px);
+  width: 90%;
+  border-radius: 31px;
+  align-items: center;
+  font-size: 1.5rem;
+  justify-content: space-between;
+  z-index: 10;
+  /* border: 1px solid white; */
+}
+a {
+  color: white;
+}
+
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+.navbar-left a {
+  margin-left: 32px;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+.navbar-right a {
+  margin-right: 32px;
+  font-size: 1.5rem;
+}
+button {
+  width: 300px;
+  border-radius: 32px;
+  height: 64px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(3px);
+  border: none;
+
+  justify-content: center;
+  align-items: center;
+  font-family: varela;
+  height: 64px;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color: white;
+}
+
+button:hover {
+  /* font-size: 1.6rem; */
+  background-color: rgba(65, 194, 29, 0.911);
+}
+button:active {
+  transform: translateY(4px);
+}

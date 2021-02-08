@@ -1,0 +1,82 @@
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url('../Fonts/Ubuntu-Bold.ttf');
+}
+
+@font-face {
+  font-family: Ubuntu-Regular;
+  src: url('../Fonts/Ubuntu-Regular.ttf');
+}
+
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+  font-family: Ubuntu-Regular;
+}
+
+.navbar {
+  display: flex;
+  width: 100%;
+  height: 56px;
+  background-color: #827ffe;
+  justify-content: center;
+}
+.navbar a {
+  padding-right: 13px;
+  text-decoration: none;
+  font-family: Ubuntu-Regular;
+  font-size: 1.5rem;
+  color: white;
+  height: auto;
+}
+.navbar-left {
+  margin: auto;
+  width: 20%;
+}
+.navbar-left a {
+  margin-left: 21px;
+}
+.navbar-right {
+  margin: auto;
+  width: 80%;
+  text-align: right;
+  margin-left: 13px;
+}
+.navbar-right a {
+  margin-right: 13px;
+}
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type='email'] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type='password'] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

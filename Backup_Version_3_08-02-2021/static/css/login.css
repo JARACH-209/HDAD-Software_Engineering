@@ -1,0 +1,131 @@
+@font-face {
+  font-family: varela;
+  src: url('../Fonts/Varela-Regular.ttf');
+}
+
+@font-face {
+  font-family: mostserrat;
+  src: url('../Fonts/Montserrat-Regular.ttf');
+}
+
+button {
+  width: 300px;
+  border-radius: 32px;
+  height: 64px;
+  margin-top: 20px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(3px);
+  border: none;
+
+  justify-content: center;
+  align-items: center;
+  font-family: varela;
+  height: 64px;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color: white;
+}
+
+button:hover {
+  font-size: 1.6rem;
+  background-color: rgba(65, 194, 29, 0.911);
+}
+button:active {
+  transform: translateY(4px);
+}
+
+/* input {
+  width: 400px;
+  border-radius: 32px;
+  height: 64px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(3px);
+
+  padding-left: 40px;
+  justify-content: center;
+  align-items: center;
+  font-family: varela;
+  height: 64px;
+  font-size: 1.5rem;
+  font-weight: bolder;
+} */
+input {
+  width: 400px;
+  border-radius: 30px;
+  height: 60px;
+  margin-top: 10px;
+  padding-left: 40px;
+  outline: none;
+  bainputckground-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  justify-content: center;
+  align-items: center;
+  font-family: varela;
+  color: black;
+  font-size: 1.5rem;
+}
+
+.container {
+  display: flex;
+  width: 95vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 0;
+}
+
+.container1 {
+  width: 30vw;
+  height: 60vh;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(3px);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  text-align: center;
+  min-width: 500px;
+  min-height: 450px;
+}
+
+.container1-1 {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+.container1-1 h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-family: varela;
+  color: white;
+}
+
+.container1-2 {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+.container1-3 {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+.container1-4 {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+.container1-5 {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+.container-filler {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+
+.container-filler h2 {
+  font-family: varela;
+  color: white;
+  font-size: 1rem;
+}

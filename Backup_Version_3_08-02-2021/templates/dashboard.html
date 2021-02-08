@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/main.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/dashboard.css')}}"
+    />
+  </head>
+  {% import "bootstrap/wtf.html" as wtf %}
+  <body>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a href="{{url_for('index')}}" class="home">Home</a>
+      </div>
+      <div class="navbar-right">
+        <a href="{{url_for('dashboard')}}" class="dashboard">Dashboard</a>
+        <a href="{{url_for('profile')}}" class="profile">{{name}}</a>
+        <a href="{{ url_for('logout') }}" class="logout">Logout</a>
+      </div>
+    </div>
+    <div class="body-container">
+      <div class="body-left">
+        <div class="row">
+          <div class="flex-item"><h1>Quick Prediction</h1></div>
+          <div class="flex-item">
+            <button>Congestive Heart Failure</button>
+            <button>Heart Failure</button>
+          </div>
+          <div class="flex-item">
+            <button>Heart DIsease</button>
+            <button>Complete Diagnostics</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="flex-item" id="patient-heading">
+            <h1>Patient Record</h1>
+          </div>
+        </div>
+        <div class="row">
+          <table class="fixed_header">
+            <thead>
+              <tr>
+                <th id="col1">S.no</th>
+                <th>Patient Id</th>
+                <th>Patient Name</th>
+                <th>Date Added</th>
+                <th>Congestive Heart Failure</th>
+                <th>Heart Failure</th>
+                <th>Heart Disease</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% set count=namespace(value=1) %} {% for row in data %} {% if
+              count.value <=10 %}
+              <tr>
+                <td id="col-1">{{count.value}}</td>
+                <td>
+                  <button onclick="location.href='{{row.PatientId}}'">
+                    {{row.PatientId}}
+                  </button>
+                </td>
+                <td>{{row.PatientName}}</td>
+                <td>{{row.PatientDate.strftime("%d/%m/%Y")}}</td>
+                {% set flag=namespace(value=0) %} {% set temp=namespace(value=1)
+                %} {% for row2 in diagdata %} {% if
+                row2.PatientId==row.PatientId %} {% set flag.value=1 %} {% if
+                temp.value ==1 %} {% if row2.DiagnosticsFor==1 %}
+                <td>-</td>
+                <td>1</td>
+                <td>-</td>
+                {% elif row2.DiagnosticsFor==2 %} {% for row3 in chf %} {% if
+                row3.DiagnosticsId==row2.id %}
+                <td>{{row3.Result}}</td>
+                <td>-</td>
+                <td>-</td>
+                {% endif %}{% endfor %} {% elif row2.DiagnosticsFor==3 %}
+                <td>-</td>
+                <td>-</td>
+                <td>1</td>
+                {% elif row2.DiagnosticsFor==4 %}
+                <td>1</td>
+                <td>1</td>
+                <td>1</td>
+                {% endif %} {% set temp.value = count.value + 1 %} {% endif %}
+                {% endif %} {% endfor %} {% if flag.value==0%}
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                {% endif %}
+              </tr>
+              {% set count.value = count.value + 1 %} {% endif %} {% endfor %}
+            </tbody>
+          </table>
+        </div>
+
+        <div class="row"><button>All Patients</button></div>
+      </div>
+
+      <div class="body-right">
+        <div class="row">
+          <div class="login-form">
+            <form method="POST" action="/dashboard">
+              <h1 class="form-signin-heading">Add Patient</h1>
+              {{ form.hidden_tag() }} {{ form.PatientName(placeholder=' Patient
+              Name ') }}
+              <button type="submit">Add</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="test"></div>
+  </body>
+  <!-- <script>
+    window.onload = function () {
+      document.getElementById('col-1').style.width =
+        document.getElementById('col1').width + 'px';
+    };
+  </script> -->
+</html>

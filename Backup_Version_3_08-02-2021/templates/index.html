@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/main.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/index.css')}}"
+    />
+  </head>
+  <body>
+    <div id="barba-wrapper">
+      <div class="barba-container">
+        <div class="navbar">
+          <div class="navbar-left">
+            <div class="link-background">
+              <a href="{{url_for('index')}}" class="middle">HDAD</a>
+            </div>
+          </div>
+          <div class="navbar-right">
+            <a href="{{ url_for('login') }}" class="middle">SIGN IN</a>
+          </div>
+        </div>
+        <div class="container">
+          <div class="container1">
+            <div class="container1-1">
+              <span class="count">{{doc}}</span>
+              <p>Doctors</p>
+            </div>
+            <div class="container1-2">
+              <span class="count">{{patient}}</span>
+              <p>Patients</p>
+            </div>
+            <div class="container1-3">
+              <span class="count">{{diag}}</span>
+              <p>Diagnostics</p>
+            </div>
+          </div>
+          <!-- <div class="container2">
+            <div class="progress-bar position"></div>
+          </div> -->
+
+          <div class="container3">
+            <div class="container3-1"><p>HDAD</p></div>
+            <div class="container3-2">
+              <div class="slideshow-container">
+                <!-- Full-width images with number and caption text -->
+                <div class="mySlides fade">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Sunt magnam possimus iure harum quae distinctio officiis
+                    tempore! Magnam sed recusandae atque iure saepe accusantium
+                    consequatur provident rerum soluta? Iste, sint.
+                  </p>
+                </div>
+
+                <div class="mySlides fade">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Accusamus nostrum iusto ex unde molestiae recusandae ab enim
+                    eaque ut sint cumque, nihil explicabo nulla blanditiis.
+                    Ipsam obcaecati et accusamus iusto?
+                  </p>
+                </div>
+
+                <div class="mySlides fade">
+                  <div>
+                    <p>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                      Illum beatae dignissimos vero nostrum obcaecati ducimus
+                      qui sunt nam earum impedit distinctio voluptate labore
+                      doloremque ipsam, voluptates ex rem quam. Soluta?
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Next and previous buttons -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container-bottom">
+          <div>
+            <button onclick="location.href='{{url_for('register') }}'">
+              SIGN UP !
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+
+
+
+          $('.count').each(function () {
+            $(this).prop('Counter',0).animate({
+              Counter: $(this).text()
+          }, {
+              duration: 4000,
+              easing: 'swing',
+              step: function (now) {
+                  $(this).text(Math.ceil(now));
+              }
+          });
+      });
+
+      var percentage = (parseInt({{doc}})/parseInt({{doc}})+parseInt({{patient}}))
+
+      ;
+      (function ($) {
+      	$.fn.loading = function () {
+      		var DEFAULTS = {
+      			backgroundColor: '#b3cef6',
+      			progressColor: '#4b86db',
+      			percent: parseInt( parseInt({{doc}}) / ( parseInt({{doc}}) + parseInt({{patient}}))*100),
+      			duration: 2000
+      		};
+
+      		$(this).each(function () {
+      			var $target  = $(this);
+
+      			var opts = {
+      			backgroundColor: $target.data('color') ? $target.data('color').split(',')[0] : DEFAULTS.backgroundColor,
+      			progressColor: $target.data('color') ? $target.data('color').split(',')[1] : DEFAULTS.progressColor,
+      			percent: $target.data('percent') ? $target.data('percent') : DEFAULTS.percent,
+      			duration: $target.data('duration') ? $target.data('duration') : DEFAULTS.duration
+      			};
+      			// console.log(opts);
+
+      			$target.append('<div class="background"></div><div class="rotate"></div><div class="left"></div><div class="right"></div><div class=""><span>' + opts.percent + '%</span></div>');
+
+      			$target.find('.background').css('background-color', opts.backgroundColor);
+      			$target.find('.left').css('background-color', opts.backgroundColor);
+      			$target.find('.rotate').css('background-color', opts.progressColor);
+      			$target.find('.right').css('background-color', opts.progressColor);
+
+      			var $rotate = $target.find('.rotate');
+      			setTimeout(function () {
+      				$rotate.css({
+      					'transition': 'transform ' + opts.duration + 'ms linear',
+      					'transform': 'rotate(' + opts.percent * 3.6 + 'deg)'
+      				});
+      			},1);
+
+      			if (opts.percent > 50) {
+      				var animationRight = 'toggle ' + (opts.duration / opts.percent * 50) + 'ms step-end';
+      				var animationLeft = 'toggle ' + (opts.duration / opts.percent * 50) + 'ms step-start';
+      				$target.find('.right').css({
+      					animation: animationRight,
+      					opacity: 1
+      				});
+      				$target.find('.left').css({
+      					animation: animationLeft,
+      					opacity: 0
+      				});
+      			}
+      		});
+      	}
+      })(jQuery);
+
+      $('.progress-bar').loading();
+            $('input').on('click', function () {
+              $('.progress-bar').loading();
+            });
+
+      var slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1}
+        slides[slideIndex-1].style.display = "block";
+        setTimeout(showSlides, 5000); // Change image every 2 seconds
+      }
+    </script>
+  </body>
+</html>

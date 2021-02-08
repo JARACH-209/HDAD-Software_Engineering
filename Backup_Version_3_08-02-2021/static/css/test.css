@@ -1,0 +1,145 @@
+@font-face {
+  font-family: Ubuntu-Bold;
+  src: url('../Fonts/Ubuntu-Bold.ttf');
+}
+
+@font-face {
+  font-family: Ubuntu-Regular;
+  src: url('../Fonts/Ubuntu-Regular.ttf');
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #fff;
+  font-family: Ubuntu-Regular;
+}
+
+.navbar {
+  display: flex;
+  width: 100%;
+  height: 56px;
+  background-color: #827ffe;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.navbar a {
+  padding-right: 13px;
+  text-decoration: none;
+  font-family: Ubuntu-Regular;
+  font-size: 1.5rem;
+  color: white;
+  height: auto;
+}
+.navbar-left {
+  margin: auto;
+  width: 20%;
+}
+.navbar-left a {
+  margin-left: 21px;
+}
+.navbar-right {
+  margin: auto;
+  width: 80%;
+  text-align: right;
+  margin-left: 13px;
+}
+.navbar-right a {
+  margin-right: 13px;
+}
+.body-container {
+  display: flex;
+  width: 100%;
+}
+.body-left {
+  width: 72%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.body-left button a {
+  color: white;
+}
+.body-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 28%;
+  border-left: 2px solid black;
+}
+h1 {
+  font-family: Ubuntu-Bold;
+  font-size: 2rem;
+  color: #403866;
+}
+button {
+  width: 300px;
+  border-radius: 4px;
+  height: 64px;
+  outline: none !important;
+
+  margin: 20px;
+  padding: 1px;
+  background-color: #827ffe;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  font-family: Ubuntu-Bold;
+  color: white;
+  font-size: 1rem;
+}
+button a {
+  text-decoration: none;
+  display: inline-block;
+  font-family: Ubuntu-Bold;
+  color: white;
+  font-size: 1rem;
+  width: 300px;
+  padding-top: 23px;
+  padding-bottom: 23px;
+  height: auto;
+  text-align: center;
+}
+input {
+  width: 300px;
+  border-radius: 4px;
+  height: 55px;
+  outline: none !important;
+  margin-top: 20px;
+  background-color: #e6e6e6;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  font-family: Ubuntu-Bold;
+  color: black;
+  font-size: 1rem;
+}
+::placeholder {
+  padding-left: 40px;
+}
+#remember {
+  width: 40px;
+  height: 1.5rem;
+}
+.checkbox {
+  font-family: Ubuntu-bold;
+  font-size: 1rem;
+  color: #403866;
+  text-align: center;
+  margin: auto;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #403866;
+}

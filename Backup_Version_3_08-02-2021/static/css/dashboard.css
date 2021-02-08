@@ -1,0 +1,210 @@
+@font-face {
+  font-family: varela;
+  src: url('../Fonts/Varela-Regular.ttf');
+}
+
+@font-face {
+  font-family: mostserrat;
+  src: url('../Fonts/Montserrat-Regular.ttf');
+}
+.body-container {
+  display: flex;
+  width: 90%;
+
+  margin-top: 110px;
+}
+.row {
+  width: 100%;
+}
+.body-left {
+  width: 73%;
+
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.body-right {
+  display: flex;
+  position: fixed;
+  right: 0;
+  top: 35%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 26%;
+  border-left: 2px solid black;
+}
+.flex-item {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+#record::-webkit-scrollbar {
+  display: none;
+}
+
+.all-patients {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-right: 5%;
+}
+
+h1 {
+  font-family: varela;
+  font-size: 2rem;
+  color: white;
+}
+
+#remember {
+  width: 40px;
+  height: 1.5rem;
+}
+.checkbox {
+  font-family: Ubuntu-bold;
+  font-size: 1rem;
+  color: #403866;
+  text-align: center;
+  margin: auto;
+}
+
+#patient-heading {
+  display: flex;
+  justify-content: left;
+  margin-left: 5%;
+  width: 95%;
+}
+
+button {
+  width: 30%;
+
+  border-radius: 20px;
+  height: 64px;
+  outline: none;
+  margin-top: 15px;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(3px);
+  border: none;
+  margin-bottom: 15px;
+
+  justify-content: center;
+  align-items: center;
+  font-family: varela;
+  height: 64px;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  color: white;
+}
+table button {
+  margin: 0;
+  width: 150px;
+}
+
+button:hover {
+  background-color: rgba(65, 194, 29, 0.911);
+}
+button:active {
+  transform: translateY(4px);
+}
+
+input {
+  width: 300px;
+  border-radius: 30px;
+  height: 60px;
+  margin-top: 10px;
+  padding-left: 40px;
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: none;
+  justify-content: center;
+  align-items: center;
+  font-family: varela;
+  color: black;
+  font-size: 1.5rem;
+}
+
+table button {
+  font-size: 1rem;
+}
+.container {
+  display: flex;
+  width: 95vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 0;
+}
+.fixed_header {
+  width: 100%;
+  margin-top: 0px;
+}
+
+.fixed_header tr:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.fixed_header th {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(3px);
+
+  color: white;
+  font-size: 1rem;
+}
+
+.fixed_header {
+  border: 1px solid rgba(225, 225, 225, 0.75);
+}
+
+.fixed_header {
+  width: 95%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+.fixed_header tbody {
+  display: block;
+  width: 100%;
+  overflow-y: scroll;
+  height: 190px;
+}
+
+.fixed_header thead tr {
+  display: flex;
+  width: 100%;
+  border: 1px solid rgba(225, 225, 225, 0.75);
+}
+
+.fixed_header th {
+  text-align: center;
+  display: flex;
+  width: 10vw;
+  align-items: center;
+  justify-content: center;
+}
+
+.fixed_header td {
+  text-align: center;
+  width: 10vw;
+}
+
+.fixed_header tbody::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+table {
+  font-family: varela;
+  margin-left: 5%;
+}
