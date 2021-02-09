@@ -6,27 +6,198 @@
     <title>Home</title>
     <link
       rel="stylesheet"
+      href="{{url_for('static', filename='css/main.css')}}"
+    />
+    <link
+      rel="stylesheet"
       href="{{url_for('static', filename='css/index.css')}}"
     />
   </head>
   <body>
-     <div class="navbar">
-      <div class="navbar-left">
-        <a href="{{url_for('index')}}" class="home">Home</a>
-      </div>
-      <div class="navbar-right">
-        <a href="{{ url_for('login') }}" class="profile">Sign In</a>
-        <a href="{{ url_for('register') }}" class="logout">Sign Up</a>
-      </div>
-    </div>
-      <div class="flex-container">
-        <div class="row"> 
-            <div class="flex-item"><h1>HELLO!</h1></div>
-            <div class="flex-item"><button><a href="{{ url_for('login') }}">Sign In</a></button></div>
-            
-            <div class="flex-item"><button><a href="{{ url_for('register') }}">Sign Up</a</button></div>
+    <div class="barba-container">
+      <div class="navbar">
+        <div class="navbar-left">
+          <div class="link-background">
+            <a href="{{url_for('index')}}" class="middle">HDAD</a>
+          </div>
         </div>
+        <div class="navbar-right">
+          <a href="{{ url_for('login') }}" class="middle">SIGN IN</a>
+        </div>
+      </div>
+      <div class="container">
+        <div class="container1">
+          <div class="container1-1">
+            <span class="count">{{doc}}</span>
+            <p>Doctors</p>
+          </div>
+          <div class="container1-2">
+            <span class="count">{{patient}}</span>
+            <p>Patients</p>
+          </div>
+          <div class="container1-3">
+            <span class="count">{{diag}}</span>
+            <p>Diagnostics</p>
+          </div>
+        </div>
+        <!-- <div class="container2">
+            <div class="progress-bar position"></div>
+          </div> -->
+      </div>
+      <div class="container2">
+        <div class="container2-1">
+          <div class="container2-1-"><h1>H</h1></div>
+          <div class="container2-1-"><h1>D</h1></div>
+          <div class="container2-1-"><h1>A</h1></div>
+          <div class="container2-1-"><h1>D</h1></div>
+        </div>
+        <div class="container2-2">
+          <div class="container2-2- first">
+            <p>EART</p>
+            <img
+              src="{{url_for('static', filename='images/pulse-heart-svgrepo-com.svg')}}"
+              alt=""
+              srcset=""
+            />
+          </div>
+          <div class="container2-2- second">
+            <p>IAGNOSTICS</p>
+            <img
+              src="{{url_for('static', filename='images/diagnostics.svg')}}"
+              alt=""
+            />
+          </div>
+          <div class="container2-2- third">
+            <p>AND</p>
+          </div>
+          <div class="container2-2- forth">
+            <p>NALYTICS</p>
+            <img
+              src="{{url_for('static', filename='images/Analytics.svg')}}"
+              alt=""
+            />
+          </div>
+          <div class="container2-2- fifth">
+            <p>ASHBOARD</p>
+            <img
+              src="{{url_for('static', filename='images/dashboard-icon.svg')}}"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="container2-3"></div>
+        <div class="container2-4"></div>
+      </div>
+      <div class="container3">
+        <div class="container3-2">
+          <div class="slideshow-container">
+            <!-- Full-width images with number and caption text -->
+            <div class="mySlides fade">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt
+                magnam possimus iure harum quae distinctio officiis tempore!
+                Magnam sed recusandae atque iure saepe accusantium consequatur
+                provident rerum soluta? Iste, sint.
+              </p>
+            </div>
+
+            <div class="mySlides fade">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Accusamus nostrum iusto ex unde molestiae recusandae ab enim
+                eaque ut sint cumque, nihil explicabo nulla blanditiis. Ipsam
+                obcaecati et accusamus iusto?
+              </p>
+            </div>
+
+            <div class="mySlides fade">
+              <div>
+                <p>
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                  Illum beatae dignissimos vero nostrum obcaecati ducimus qui
+                  sunt nam earum impedit distinctio voluptate labore doloremque
+                  ipsam, voluptates ex rem quam. Soluta?
+                </p>
+              </div>
+            </div>
+
+            <!-- Next and previous buttons -->
+          </div>
+          <div id="dotsdiv" style="text-align: center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-bottom">
+        <div>
+          <button onclick="location.href='{{url_for('register') }}'">
+            SIGN UP !
+          </button>
+        </div>
+      </div>
     </div>
-      
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+      $('.count').each(function () {
+        $(this)
+          .prop('Counter', 0)
+          .animate(
+            {
+              Counter: $(this).text(),
+            },
+            {
+              duration: 4000,
+              easing: 'swing',
+              step: function (now) {
+                $(this).text(Math.ceil(now));
+              },
+            }
+          );
+      });
+
+      var slideIndex = 1;
+      showSlides();
+
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+      function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName('mySlides');
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = 'none';
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+          slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = 'block';
+        setTimeout(showSlides, 5000); // Change image every 2 seconds
+      }
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName('mySlides');
+        var dots = document.getElementsByClassName('dot');
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = 'none';
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(' active', '');
+        }
+        slides[slideIndex - 1].style.display = 'block';
+        dots[slideIndex - 1].className += ' active';
+      }
+    </script>
   </body>
 </html>

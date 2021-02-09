@@ -1,73 +1,17 @@
 @font-face {
-  font-family: Ubuntu-Bold;
-  src: url('../Fonts/Ubuntu-Bold.ttf');
+  font-family: varela;
+  src: url('../Fonts/Varela-Regular.ttf');
 }
 
 @font-face {
-  font-family: Ubuntu-Regular;
-  src: url('../Fonts/Ubuntu-Regular.ttf');
+  font-family: mostserrat;
+  src: url('../Fonts/Montserrat-Regular.ttf');
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-body {
-  background-image: linear-gradient(
-    to left top,
-    #dc71c5,
-    #d67cce,
-    #d086d6,
-    #ca90dd,
-    #c499e2,
-    #bd94e4,
-    #b490e7,
-    #ab8cea,
-    #9a7aec,
-    #8769ee,
-    #6f58f0,
-    #5048f2
-  );
-  font-family: Ubuntu-Regular;
-}
-
-.navbar {
-  display: flex;
-  width: 100%;
-  height: 5%;
-  background-color: #827ffe;
-  justify-content: center;
-}
-.navbar a {
-  padding-right: 13px;
-  text-decoration: none;
-  font-family: Ubuntu-Regular;
-  font-size: 1.5rem;
-  color: white;
-  height: auto;
-}
-.navbar-left {
-  margin: auto;
-  width: 20%;
-}
-.navbar-left a {
-  margin-left: 21px;
-}
-.navbar-right {
-  margin: auto;
-  width: 80%;
-  text-align: right;
-  margin-left: 13px;
-}
-.navbar-right a {
-  margin-right: 13px;
-}
 .flex-container {
-  height: 95%;
+  height: 85%;
   padding: 0;
-  margin: 0;
+  margin-top: 80px;
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -85,77 +29,95 @@ body {
   text-align: center;
 }
 
+#hidden {
+  margin-top: 10px;
+}
+
 .flex-item h1 {
   width: 400px;
   margin-bottom: 30px;
   margin-top: 0;
-  font-family: Ubuntu-Bold;
+  font-family: varela;
   font-size: 2rem;
-  color: #403866;
+  color: white;
+}
+.flex-item h2 {
+  width: 400px;
+  margin-bottom: 30px;
+  margin-top: 0;
+  font-family: varela;
+  font-size: 1rem;
+  color: white;
 }
 
 button {
   width: 400px;
-  border-radius: 4px;
+  border-radius: 20px;
   height: 64px;
-  outline: none !important;
+  outline: none;
+  margin-top: 40px;
+  border: none;
+  margin-bottom: 50px;
+  justify-content: center;
+  align-items: center;
+  font-family: varela;
+  height: 64px;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  color: #821667;
+}
+
+button:hover {
+  font-size: 1.6rem;
+}
+button:active {
+  transform: translateY(4px);
+}
+
+input {
+  width: 360px;
+  border-radius: 20px;
+  height: 55px;
   margin-top: 20px;
-  padding: 0px;
-  background-color: #827ffe;
+  padding-left: 40px;
+  outline: none;
+  background-color: #c43a5f;
   border: none;
   justify-content: center;
   align-items: center;
-  font-family: Ubuntu-Bold;
+  font-family: varela;
   color: white;
-  font-size: 1rem;
-}
-button a {
-  text-decoration: none;
-  display: inline-block;
-  font-family: Ubuntu-Bold;
-  color: white;
-  font-size: 1rem;
-  width: 400px;
-  padding-top: 23px;
-  padding-bottom: 23px;
-  height: auto;
-  text-align: center;
+  font-size: 1.2rem;
 }
 
-a:hover {
-  text-decoration: none;
-  color: #403866;
-}
-
-.navbar {
+.checkbox {
   display: flex;
-  width: 100%;
-  height: 56px;
-  background: rgba(255, 255, 255, 0.4);
-  border-bottom: 1px solid rgba(225, 225, 225, 0.5);
+  align-items: center;
+  justify-content: center;
+  font-family: varela;
+  font-size: 1rem;
+  color: white;
+  text-align: center;
+  margin: auto;
+}
+
+::placeholder {
+  color: white;
+}
+
+label {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
   justify-content: center;
 }
-.navbar a {
-  padding-right: 13px;
-  text-decoration: none;
-  font-family: Ubuntu-Regular;
-  font-size: 1.5rem;
-  color: white;
-  height: auto;
-}
-.navbar-left {
-  margin: auto;
-  width: 20%;
-}
-.navbar-left a {
-  margin-left: 21px;
-}
-.navbar-right {
-  margin: auto;
-  width: 80%;
-  text-align: right;
-  margin-left: 13px;
-}
-.navbar-right a {
-  margin-right: 13px;
+#remember {
+  width: 20px;
+  height: 20px;
+
+  margin: 0;
+  margin-right: 10px;
+  font-size: 20px;
+  font-family: varela;
+  background-color: red;
 }

@@ -8,24 +8,18 @@
       rel="stylesheet"
       href="{{url_for('static', filename='css/DocId.css')}}"
     />
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', filename='css/main.css')}}"
-    />
   </head>
   <body>
     <div class="navbar">
       <div class="navbar-left">
-        <a class="middle" href="{{url_for('index')}}" class="home">HDAD</a>
+        <a href="{{url_for('index')}}" class="home">Home</a>
       </div>
       <div class="navbar-right">
-        <a class="middle" href="{{ url_for('register') }}" class="logout"
-          >SIGN UP</a
-        >
-        <a class="middle" href="{{ url_for('login') }}" class="profile"
-          >SIGN IN</a
-        >
+        <a href="{{url_for('dashboard')}}" class="dashboard">Dashboard</a>
+        <a href="#" class="profile">{{name}}</a>
+        <a href="{{ url_for('logout') }}" class="logout">Logout</a>
       </div>
+    </div>
     </div>
     <div class="flex-container">
       <div class="row">

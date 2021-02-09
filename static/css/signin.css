@@ -11,21 +11,7 @@
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-image: linear-gradient(
-    to left top,
-    #dc71c5,
-    #d67cce,
-    #d086d6,
-    #ca90dd,
-    #c499e2,
-    #bd94e4,
-    #b490e7,
-    #ab8cea,
-    #9a7aec,
-    #8769ee,
-    #6f58f0,
-    #5048f2
-  );
+  background-color: #eee;
   font-family: Ubuntu-Regular;
 }
 
@@ -33,8 +19,7 @@ body {
   display: flex;
   width: 100%;
   height: 56px;
-  background: rgba(255, 255, 255, 0.4);
-  border-bottom: 1px solid rgba(225, 225, 225, 0.5);
+  background-color: #827ffe;
   justify-content: center;
 }
 .navbar a {
@@ -94,13 +79,4 @@ body {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-}
-button:hover {
-  text-decoration: none;
-
-  background-color: #5a58e4;
-}
-
-button:active {
-  transform: translateY(4px);
 }

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/PatientDetails.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/main.css')}}"
+    />
+  </head>
+  {% import "bootstrap/wtf.html" as wtf %}
+  <body>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a href="{{url_for('index')}}" class="home">Home</a>
+      </div>
+      <div class="navbar-right">
+        <a href="{{url_for('dashboard')}}" class="dashboard">Dashboard</a>
+        <a href="#" class="profile">{{name}}</a>
+        <a href="{{ url_for('logout') }}" class="logout">Logout</a>
+      </div>
+    </div>
+    <div class="container">
+      <div class="container1">
+        <div class="container1-1">
+          <h1>{{ data.PatientId}}</h1>
+        </div>
+        <div class="container1-2">
+          <div>
+           
+          <h2>Name : {{data.PatientName}}</h2>
+          <h2>Date Created : {{data.PatientDate.strftime("%d/%m/%Y")}}</h2>
+          <h2>Time : {{data.PatientDate.strftime("%H:%M:%S")}}</h2>
+          <h2>Diagnostics Date : {{ dd}}</h2>
+     
+          </div>
+        </div>
+        <!--  -->
+        <div class="container1-3">
+          <button class="pseudo" onclick="openalert()">BUTTON</button>
+        </div>
+          
+        
+      </div>
+
+      <!--             Right Body Start                 -->
+      <div class="filler"></div>
+      <div class="container2">
+          <div class="container2-1">
+            <button onclick="openchf()">Congestive Heart Failure</button>
+            <button onclick="openhf()">Heart Failure</button>
+
+            <button>Heart Disease</button>
+            <button>Complete Diagnostics</button>
+          </div>
+          <div> </div>
+
+          <div id="record" class="flex-item">
+            
+          </div>
+        </div>
+      </div>
+
+      <!--          Right Body End                 -->
+    </div>
+    <div class="translucent" id="chf">
+      <div class="forminput">
+        <form method="POST" action="{{data.PatientId}}">
+          {{ chfform.hidden_tag() }}
+          <div class="form-item">{{ chfform.Pulse(placeholder='Pulse') }}</div>
+          <div class="form-item">
+            {{ chfform.Respiration(placeholder='Respiration Rate') }}
+          </div>
+          <div class="form-item">
+            {{ chfform.NYHA(placeholder='NYHA cardiac function classification')
+            }}
+          </div>
+          <div class="form-item">
+            {{ chfform.Killip(placeholder='Killip Grade') }}
+          </div>
+          <div class="form-item">{{ chfform.Fio2(placeholder='Fio2') }}</div>
+          <div class="form-item">
+            {{chfform.LVEDD( placeholder=' Left Ventricular End Diastolic
+            Diameter LV') }}
+          </div>
+          <div class="form-item">
+            {{chfform.BNP(placeholder='Brain Natriuretic Peptide') }}
+          </div>
+          <div class="form-item">
+            {{ chfform.Cystatin(placeholder='Cystatin') }}
+          </div>
+          <div class="form-item">
+            {{ chfform.HST( placeholder='High Sensitivity Troponin') }}
+          </div>
+          <div class="form-item"><button type="submit" name="submitchf" value="submitchf">Submit</button></div>
+          <div class="form-item"><h2>{{message}}</h2></div>
+          <div class="form-item">
+            <button type="submit" name="save" value="save">Save</button>
+            <button onclick="closechf()">Close</button>
+            
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="translucent" id="hf">
+      <div class="forminput">
+        <form method="POST" action="{{data.PatientId}}">
+          {{ hfform.hidden_tag() }}
+          <div class="form-item"> {{ hfform.Pulse(placeholder='Pulse') }}</div>
+          <div class="form-item">{{
+          hfform.SystolicBP(placeholder='Systolic Blood Presure') }}</div>
+          <div class="form-item">{{
+          <div class="form-item">{{hfform.LVEDD(
+          placeholder=' Left Ventricular End Diastolic Diameter LV') }}</div>
+          <div class="form-item">{{hfform.BNP(placeholder='Brain Natriuretic Peptide') }}</div>
+          <div class="form-item">{{
+          hfform.CreatnineKinase(placeholder='Creatnine Kinase') }}</div>
+          <div class="form-item">{{
+          hfform.Cholestrol( placeholder='Cholestrol') }} </div>
+          <div class="form-item"> {{ hfform.CEM(
+          placeholder='Creatinine Enzymetic Method') }}</div>
+          <div class="form-item">{{ hfform.CEM(
+          placeholder='Creatinine Enzymetic Method') }}</div>
+          <div class="form-item">{{ hfform.Potassium(
+          placeholder='Potassium') }}</div>
+          <div class="form-item">{{hfform.HFsubmit(placeholder='Submit')}}</div>
+          
+          <div class="form-item"><h2>{{message}}</h2></div>
+          <div class="form-item">
+
+              <button type="submit">Save</button>
+            <button onclick="closehf()">Close</button>
+            
+              
+        </div>
+      </div>
+      </form>
+    </div>
+
+     <div class="translucent" id="patientalert">
+      <div class="forminput">
+        <form method="POST" action="{{data.PatientId}}">
+          {{ alert.hidden_tag() }}
+          <div class="form-item"> {{ alert.email(placeholder='Patient Email') }}</div>
+          <div class="form-item">{{
+          alert.message(placeholder='Message') }}</div>
+          <div class="form-item">
+              <button type="submit" name="alert" value="alert">Send</button>
+              
+            <button onclick="closealert()">Close</button>
+            
+              
+        </div>
+      </div>
+      </form>
+    </div>
+    <div class="translucent" id="stats">
+     <div id="graph"></div>
+      <button onclick="closestats()">Close</button>
+    </div>
+    {% if form==2 %}
+    <script>
+      document.getElementById('chf').style.display = 'flex';
+    </script>
+    {% endif%}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+   
+   $('#graph').load("{{url_for('image')}}");
+
+});
+</script>
+    <script>
+
+      function openchf() {
+        document.getElementById('chf').style.display = 'flex';
+      }
+
+      function openalert() {
+        document.getElementById('patientalert').style.display = 'flex';
+      }
+      function closealert() {
+        document.getElementById('patientalert').style.display = 'none';
+      }
+      function closechf() {
+        document.getElementById('chf').style.display = 'none';
+      }
+
+      function openhf() {
+        document.getElementById('hf').style.display = 'flex';
+      }
+
+      function closehf() {
+        document.getElementById('hf').style.display = 'none';
+      }
+
+      function openstats() {
+        document.getElementById('stats').style.display = 'flex';
+      }
+
+      function closestats() {
+        document.getElementById('stats').style.display = 'none';
+      }
+
+    </script>
+  </body>
+</html>
