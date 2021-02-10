@@ -295,6 +295,10 @@ button:active {
 }
 
 p.p-head {
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 1.5rem;
+}
+
+button {
+  height: calc(30px + 1vw);
 }

@@ -234,13 +234,13 @@ class CHFDiagnostics(FlaskForm):
 
 
 class HFDiagnostics(FlaskForm):
-    Pulse = StringField('Pulse', validators=[
+    Pulse2 = StringField('Pulse', validators=[
         InputRequired(), Length(max=100) ])
     SystolicBP = StringField('Systolic Blood Presure', validators=[
         InputRequired(), Length(max=100) ])
     LVEDD = StringField('left ventricular end diastolic diameter LV', validators=[
         InputRequired(), Length(max=100)])
-    BNP = StringField('Brain Natriuretic Peptide', validators=[
+    BNP2 = StringField('Brain Natriuretic Peptide', validators=[
         InputRequired(), Length(max=100)])
     CreatnineKinase = StringField('Creatnine Kinase', validators=[
         InputRequired(), Length(max=100)])
@@ -248,7 +248,7 @@ class HFDiagnostics(FlaskForm):
         InputRequired(), Length(max=100)])
     CEM = StringField('Creatinine Enzymetic Method', validators=[
         InputRequired(), Length(max=100)])
-    Potassium = StringField('Potassium', validators=[
+    Potassium2 = StringField('Potassium', validators=[
         InputRequired(), Length(max=100)])
     HFsubmit = SubmitField('Submit')
 
@@ -426,6 +426,7 @@ def dashboard():
     data = Patient.query.filter_by(PatientDocId=current_user.DocId).order_by(Patient.id.desc()).all()
     Diagdata = PatientDiagnostics.query.filter_by(PatientDocId=current_user.DocId).order_by(PatientDiagnostics.id.desc()).all()
     chf = CHF.query.filter_by(PatientDocId=current_user.DocId).order_by(CHF.id.desc()).all()
+    hf1 = HF.query.filter_by(PatientDocId=current_user.DocId).order_by(HF.id.desc()).all()
     if request.method == 'POST':
 
         if form.validate_on_submit():
@@ -485,16 +486,16 @@ def dashboard():
             f = open(path, 'w')
             f.write(str(DiagnosticsCounter+1))
             f.close()
-            return render_template('dashboard.html', name=current_user.DocName, form=form,data=data,diagdata=Diagdata,chf=chf,formnum=2,chfform=chfform, hfform=hfform,message=message,message2="")
+            return render_template('dashboard.html', name=current_user.DocName, form=form,data=data,diagdata=Diagdata,chf=chf,hf=hf1,formnum=2,chfform=chfform, hfform=hfform,message=message,message2="")
         elif hfform.validate_on_submit() and  request.form.get("submithf"):
-            pulse = hfform.Pulse.data
+            pulse = hfform.Pulse2.data
             systolicbp = hfform.SystolicBP.data
             lvedd = hfform.LVEDD.data
-            bnp = hfform.BNP.data
+            bnp = hfform.BNP2.data
             creatnine=hfform.CreatnineKinase.data
             cholestrol = hfform.Cholestrol.data
             cem = hfform.CEM.data
-            potassium = hfform.Potassium.data
+            potassium = hfform.Potassium2.data
 
             pulse = int(pulse)      
             systolicbp = int(systolicbp)
@@ -522,9 +523,9 @@ def dashboard():
             f = open(path, 'w')
             f.write(str(DiagnosticsCounter+1))
             f.close()
-            return render_template('dashboard.html', name=current_user.DocName, form=form,data=data,diagdata=Diagdata,chf=chf,formnum=3,chfform=chfform,hfform=hfform,message2=message2,message="")
+            return render_template('dashboard.html', name=current_user.DocName, form=form,data=data,diagdata=Diagdata,chf=chf,hf=hf1,formnum=3,chfform=chfform,hfform=hfform,message2=message2,message="")
     else:
-        return render_template('dashboard.html', name=current_user.DocName, form=form,data=data,diagdata=Diagdata,chf=chf,chfform=chfform,hfform=hfform,fornnum=0,message="",message2="")
+        return render_template('dashboard.html', name=current_user.DocName, form=form,data=data,diagdata=Diagdata,chf=chf,hf=hf1,chfform=chfform,hfform=hfform,fornnum=0,message="",message2="")
 
 @app.route('/diagnostics', methods=['GET', 'POST'])
 @login_required
@@ -698,14 +699,14 @@ def showpatient(pid):
             mail.send(msg)
             return redirect(url_for('showpatient',pid=pid))
         elif hfform.validate_on_submit() and  request.form.get("save"):
-            pulse = hfform.Pulse.data
+            pulse = hfform.Pulse2.data
             systolicbp = hfform.SystolicBP.data
             lvedd = hfform.LVEDD.data
-            bnp = hfform.BNP.data
+            bnp = hfform.BNP2.data
             creatnine=hfform.CreatnineKinase.data
             cholestrol = hfform.Cholestrol.data
             cem = hfform.CEM.data
-            potassium = hfform.Potassium.data
+            potassium = hfform.Potassium2.data
 
             pulse = int(pulse)      
             systolicbp = int(systolicbp)
@@ -744,14 +745,14 @@ def showpatient(pid):
             f.close()
             return redirect(url_for('showpatient',pid=pid))
         elif hfform.validate_on_submit() and  request.form.get("submithf"):
-            pulse = hfform.Pulse.data
+            pulse = hfform.Pulse2.data
             systolicbp = hfform.SystolicBP.data
             lvedd = hfform.LVEDD.data
-            bnp = hfform.BNP.data
+            bnp = hfform.BNP2.data
             creatnine=hfform.CreatnineKinase.data
             cholestrol = hfform.Cholestrol.data
             cem = hfform.CEM.data
-            potassium = hfform.Potassium.data
+            potassium = hfform.Potassium2.data
 
             pulse = int(pulse)      
             systolicbp = int(systolicbp)

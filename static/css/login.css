@@ -58,6 +58,11 @@ body {
   font-family: varela;
   color: white;
 }
+h2 {
+  font-size: 1rem;
+  font-family: varela;
+  color: red;
+}
 
 a {
   text-decoration: none;
@@ -194,5 +199,6 @@ h1 {
 }
 
 button {
-  height: 50px;
+  height: calc(30px + 1vw);
+  width: 60%;
 }

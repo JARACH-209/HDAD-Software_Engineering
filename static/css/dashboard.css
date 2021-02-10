@@ -7,22 +7,124 @@
   font-family: mostserrat;
   src: url('../Fonts/Montserrat-Regular.ttf');
 }
+@font-face {
+  font-family: varela;
+  src: url('../Fonts/Varela-Regular.ttf');
+}
+
+@font-face {
+  font-family: mostserrat;
+  src: url('../Fonts/Montserrat-Regular.ttf');
+}
+@font-face {
+  font-family: bahnschrift;
+  src: url('../Fonts/BAHNSCHRIFT.TTF');
+}
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: linear-gradient(
+    to right top,
+    #c96ca5,
+    #c66cb1,
+    #c16dbe,
+    #b96fcb,
+    #ad72d9,
+    #a16fdd,
+    #946de0,
+    #856be4,
+    #7862de,
+    #6a59d7,
+    #5c50d1,
+    #4c47cb
+  );
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 500px;
+}
+.navbar {
+  height: calc(30px + 2vh);
+  width: 90%;
+  position: fixed;
+  top: 2vh;
+  left: 5%;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(3px);
+  border-radius: calc(15px + 2vh);
+  display: flex;
+  z-index: 100;
+  justify-content: space-between;
+}
+.navbar a {
+  font-size: calc(15px + 1vh);
+  font-family: varela;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+}
+a.middle {
+  position: relative;
+}
+
+a.middle:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  visibility: hidden;
+  transform: scaleX(0);
+  transition: all 0.3s ease-in-out;
+}
+
+a.middle:hover:before {
+  visibility: visible;
+  transform: scaleX(1);
+}
+
+.navbar-left {
+  display: flex;
+  margin-left: calc(5px + 1vw);
+  align-items: center;
+}
+.navbar-right {
+  display: flex;
+  margin-right: calc(5px + 1vw);
+  align-items: center;
+}
+
+.navbar-right a {
+  margin-left: calc(5px + 1vw);
+}
 .body-container {
   display: flex;
   width: 90%;
-  min-height: 80vh;
-  background-color: rgba(255, 255, 255, 0.15);
+  min-height: 85vh;
+  background-color: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(3px);
-  margin-top: 110px;
+  margin-top: calc(40px + 3vw);
   border-radius: 30px;
   margin-bottom: 10px;
+  flex-wrap: wrap;
+  align-items: stretch;
 }
 .row {
   width: 100%;
 }
 .body-left {
   width: 73%;
-
+  min-width: 450px;
   padding: 0;
   margin: 0;
   display: -webkit-box;
@@ -34,22 +136,22 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+  flex-grow: 1;
 }
 
 .body-right {
   display: flex;
-  position: fixed;
-  right: 0;
-  top: 0;
-  height: 100%;
+  min-width: 200px;
   align-items: center;
   justify-content: center;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.15);
-
+  flex-grow: 1;
   width: 26%;
   border-radius: 30px;
+  flex-direction: column;
 }
+
 .flex-item {
   width: 100%;
 
@@ -95,7 +197,6 @@ h1 {
 
 button {
   width: 30%;
-  height: 5 vh;
   border-radius: 30px;
   outline: none;
   margin-top: 15px;
@@ -108,13 +209,14 @@ button {
   align-items: center;
   font-family: varela;
 
-  font-size: 1.2rem;
   font-weight: bolder;
   color: white;
 }
 table button {
   margin: 0;
-  width: 150px;
+  width: auto;
+  padding-left: 20px;
+  padding-right: 20px;
   height: 40px;
   margin: 1vh;
 }
@@ -127,11 +229,13 @@ button:active {
 }
 
 input {
-  width: 70%;
-  border-radius: 30px;
-  height: 60px;
-  margin: 10px;
-  padding-left: 60px;
+  width: 80%;
+  border-radius: 20px;
+  height: 40px;
+  max-width: 350px;
+  max-height: 50px;
+  margin-top: 3%;
+  padding-left: 40px;
   outline: none;
   background-color: rgba(255, 255, 255, 0.6);
   border: none;
@@ -139,7 +243,7 @@ input {
   align-items: center;
   font-family: varela;
   color: black;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 ::placeholder {
   margin: 0;
@@ -156,7 +260,10 @@ input {
   margin-top: 0;
 }
 table button {
-  font-size: 1rem;
+  font-size: calc(5px + 0.75vw);
+}
+table {
+  font-size: calc(5px + 1vw);
 }
 .fixed_header {
   width: 100%;
@@ -171,7 +278,6 @@ table button {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.3);
   color: white;
-  font-size: 1rem;
 }
 
 .fixed_header {
@@ -184,10 +290,11 @@ table button {
   display: block;
   width: 100%;
   overflow-y: scroll;
-  max-height: 190px;
-  height: 20vh;
+  max-height: 390px;
+  height: 30vh;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
+  margin-bottom: 32px;
   border-bottom: 1px solid rgba(225, 225, 225, 0.75);
   border-left: 1px solid rgba(225, 225, 225, 0.75);
   border-right: 1px solid rgba(225, 225, 225, 0.75);
@@ -205,10 +312,10 @@ table thead {
   border-top-right-radius: 30px;
 }
 
-.fixed_header th {
+th {
   text-align: center;
   display: flex;
-  width: 9vw;
+  width: calc(100% / 7);
   align-items: center;
   justify-content: center;
 }
@@ -217,7 +324,7 @@ table thead {
   text-align: center;
   color: white;
   font-family: varela;
-  width: 9vw;
+  width: calc(90% / 7);
 }
 
 .fixed_header tbody::-webkit-scrollbar {
@@ -232,9 +339,8 @@ table {
 
 .popUp button {
   background-color: #c16dbe;
-  font-size: 1rem;
   margin: 10px;
-  width: 40%;
+  width: 50%;
 }
 .popUp {
   display: flex;
@@ -242,14 +348,18 @@ table {
   align-items: center;
   position: fixed;
   z-index: 30;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+
   width: 100%;
   height: 100%;
-  overflow: auto;
+
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(3px);
+}
+.popUp h1 {
+  font-family: varela;
+  font-size: 1.5rem;
 }
 
 .popup_hide {
@@ -259,32 +369,33 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 10px;
   width: 100%;
 }
 .top-popup {
   height: 20px;
 }
 .popUp-content {
-  padding: 1em;
-  min-width: 600px;
-
-  margin-top: 30px;
-  height: 75vh;
-  overflow: scroll;
-
   background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(3px);
   border-radius: 20px;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 40;
+  justify-content: center;
+  text-align: center;
+  max-width: 500px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-width: 400px;
+  z-index: 1500;
+}
+#hfpopup {
+  z-index: 1500;
+}
+#chfpopup {
+  z-index: 1500;
 }
 .popUp-content::-webkit-scrollbar {
   display: none; /* Safari and Chrome */
@@ -294,9 +405,33 @@ table {
   text-align: center;
 }
 
-@media (max-width: 768px) {
-  .popUp-content {
-    width: 85vw;
+@media (max-width: 860px) {
+  input {
+    width: 200px;
+  }
+  .body-container {
+    flex-direction: column-reverse;
+  }
+  .body-right {
+    width: 100%;
+  }
+  .row {
+    width: 100%;
+  }
+  .fixed_header,
+  tbody,
+  thead {
+    width: 90%;
+    margin-left: 2.5%;
+  }
+  thead {
+    transform: translateX(2.5%);
+  }
+  .body-left {
+    width: 100%;
+  }
+  .flex-item {
+    width: 100%;
   }
 }
 
@@ -327,24 +462,29 @@ label {
   margin-bottom: 2em;
 }
 
-#hfpopup {
-  height: 90vh;
-}
 #hfpopup input {
   margin-bottom: 0;
+}
+popup input {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+.form-item {
+  width: 100%;
+  min-width: 300px;
 }
 
 .popUp h1 {
   font-family: varela;
   color: #883073;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 #rest h1 {
   font-size: 5vh;
   height: 70vh;
   width: 25vw;
-  padding: 100px;
+  padding: 50;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -356,6 +496,8 @@ label {
   border-radius: 25px;
   height: 50px;
   margin: 10px;
+  margin-bottom: 0;
+
   padding-left: 20px;
   outline: none;
   background-color: rgba(255, 255, 255, 0.6);
@@ -364,10 +506,27 @@ label {
   align-items: center;
   font-family: varela;
   color: black;
-  font-size: 1.2rem;
+  font-size: 0.75rem;
 }
 .popUp p {
   color: #883073;
   font-family: varela;
   font-size: 1rem;
+}
+
+button {
+  height: calc(30px + 1vw);
+  font-size: calc (5px + 2vw);
+  width: 30%;
+}
+
+.body-right button {
+  min-width: 150px;
+}
+h1 {
+  font-size: calc (30px + 5vw);
+}
+
+tbody {
+  width: 100%;
 }

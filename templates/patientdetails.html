@@ -157,19 +157,19 @@
           <form method="POST" action="{{data.PatientId}}">
           {{ hfform.hidden_tag() }}
           <div class="form-item"><h1>Enter Details For HF Clasification</h1></div>
-          <div class="form-item"> {{ hfform.Pulse(placeholder='Pulse') }}</div>
+          <div class="form-item"> {{ hfform.Pulse2(placeholder='Pulse') }}</div>
           <div class="form-item">{{
           hfform.SystolicBP(placeholder='Systolic Blood Presure') }}</div>
           <div class="form-item">{{hfform.LVEDD(
           placeholder=' Left Ventricular End Diastolic Diameter LV') }}</div>
-          <div class="form-item">{{hfform.BNP(placeholder='Brain Natriuretic Peptide') }}</div>
+          <div class="form-item">{{hfform.BNP2(placeholder='Brain Natriuretic Peptide') }}</div>
           <div class="form-item">{{
           hfform.CreatnineKinase(placeholder='Creatnine Kinase') }}</div>
           <div class="form-item">{{
           hfform.Cholestrol( placeholder='Cholestrol') }} </div>
           <div class="form-item"> {{ hfform.CEM(
           placeholder='Creatinine Enzymetic Method') }}</div>
-          <div class="form-item">{{ hfform.Potassium(
+          <div class="form-item">{{ hfform.Potassium2(
           placeholder='Potassium') }}</div>
           
          <p>{{message2}}</p>
@@ -207,8 +207,8 @@
         </div>
         <!-- <span class="close">&times;</span> -->
       </div>
-      <div id="alert" class="popUp popup_hide">
-        <div class="popUp-content">
+      <div  id="alert" class="popUp popup_hide">
+        <div id="alertmain" class="popUp-content">
          <form method="POST" action="{{data.PatientId}}">
           {{ alert.hidden_tag() }}
           <div class="form-item"><h1>Notify Patient</h1></div>
@@ -227,19 +227,19 @@
     </div>
     {% if form==3 %}
     <script>
-      document.getElementById('hfform').style.display = 'block';
+      document.getElementById('hfform').style.display = 'flex';
     </script>
     {% endif%}
     {% if form==4 %}
     <script>
-      document.getElementById('stats').style.display = 'block';
+      document.getElementById('stats').style.display = 'flex';
     </script>
     {% endif%}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     
     {% if form==2 %}
     <script>
-      document.getElementById('chf-form').style.display = 'block';
+      document.getElementById('chf-form').style.display = 'flex';
     </script>
     {% endif%}
     
@@ -251,7 +251,7 @@
       var span = document.getElementsByClassName('close')[0];
 
       btn.onclick = function () {
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
       };
 
       span.onclick = function () {
@@ -267,7 +267,7 @@
       var span2 = document.getElementsByClassName('close')[0];
 
       btn2.onclick = function () {
-        modal2.style.display = 'block';
+        modal2.style.display = 'flex';
       };
     
       span.onclick = function () {
@@ -285,31 +285,31 @@
       var span3 = document.getElementsByClassName('close')[0];
 
        btn3.onclick = function () {
-        modal3.style.display = 'block';
+        modal3.style.display = 'flex';
       };
       var modal4 = document.getElementById('alert');
 
       var btn4 = document.getElementById('alertbtn');
       btn4.onclick = function () {
-        modal4.style.display = 'block';
+        modal4.style.display = 'flex';
       };
       var modal5 = document.getElementById('rest');
 
       var btn5 = document.getElementById('restbtn');
       btn5.onclick = function () {
-        modal5.style.display = 'block';
+        modal5.style.display = 'flex';
       };
          var btn6 = document.getElementById('restbtn2');
       btn6.onclick = function () {
-        modal5.style.display = 'block';
+        modal5.style.display = 'flex';
       };
          var btn7 = document.getElementById('restbtn3');
       btn7.onclick = function () {
-        modal5.style.display = 'block';
+        modal5.style.display = 'flex';
       };
          var btn8 = document.getElementById('restbtn4');
       btn8.onclick = function () {
-        modal5.style.display = 'block';
+        modal5.style.display = 'flex';
       };
       
 

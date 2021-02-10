@@ -2,12 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.25" />
     <title>Dashboard</title>
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', filename='css/main.css')}}"
-    />
+    
     <link
       rel="stylesheet"
       href="{{url_for('static', filename='css/dashboard.css')}}"
@@ -23,7 +20,7 @@
         <a class="middle" href="{{url_for('dashboard')}}" class="dashboard"
           >Dashboard</a
         >
-        <a class="middle" href="{{url_for('profile')}}" class="profile"
+        <a class="middle" href="#" class="profile"
           >{{name}}</a
         >
         <a class="middle" href="{{ url_for('logout') }}" class="logout"
@@ -36,12 +33,12 @@
         <div class="row">
           <div class="flex-item"><h1>Quick Prediction</h1></div>
           <div class="flex-item">
-            <button class="button-popup" id="chf">Congestive Heart Failure</button>
-            <button class="button-popup" id="hf">Heart Failure</button>
+            <button class="button-popup" id="chf">CHF DETECTION</button>
+            <button class="button-popup" id="hf">HF CLASSIFICATION</button>
           </div>
           <div class="flex-item">
-            <button class="button-popup" id="restbtn">Heart DIsease</button>
-            <button class="button-popup" id="restbtn2">Complete Diagnostics</button>
+            <button class="button-popup" id="restbtn">HEART DISEASE</button>
+            <button class="button-popup" id="restbtn2">COMPLETE DIAGNOSTICS</button>
           </div>
         </div>
         <div class="row">
@@ -57,14 +54,14 @@
                 <th>Patient Id</th>
                 <th>Patient Name</th>
                 <th>Date Added</th>
-                <th>Congestive Heart Failure</th>
+                <th>CHF</th>
                 <th>Heart Failure</th>
                 <th>Heart Disease</th>
               </tr>
             </thead>
             <tbody>
               {% set count=namespace(value=1) %} {% for row in data %} {% if
-              count.value <=10 %}
+              count.value <=100 %}
               <tr>
                 <td id="col-1">{{count.value}}</td>
                 <td>
@@ -86,10 +83,10 @@
                 <td>{{row3.Result}}</td>
                 <td>-</td>
                 <td>-</td>
-                {% endif %}{% endfor %} {% elif row2.DiagnosticsFor==3 %}
+                {% endif %}{% endfor %} {% elif row2.DiagnosticsFor==3 %}<td>-</td> 
                 <td>-</td>
-                <td>-</td>
-                <td>1</td>
+
+               <td>-</td>
                 {% elif row2.DiagnosticsFor==4 %}
                 <td>1</td>
                 <td>1</td>
@@ -105,26 +102,23 @@
             </tbody>
           </table>
         </div>
-
-        <div class="row"><button>All Patients</button></div>
       </div>
 
       <div class="body-right">
-        <div class="row">
-          <div class="login-form">
+      
+          
             <form method="POST" action="/dashboard">
               <h1 class="form-signin-heading">Add Patient</h1>
-              {{ form.hidden_tag() }} {{ form.PatientName(placeholder='Patient
-              Name ') }}
-              <button type="submit">Add</button>
+              {{ form.hidden_tag() }} {{ form.PatientName(placeholder='Patient Name ') }}
+              <br>
+              <button type="submit">ADD</button>
             </form>
-          </div>
-        </div>
+          
+        
       </div>
     </div>
     <div id="chf-form" class="popUp popup_hide">
-        <div class="popUp-content">
-          <div class="top-popup"></div>
+        <div class="popUp-content chfpopup">
           <form method="POST" action="{{data.PatientId}}">
             {{ chfform.hidden_tag() }}
             <div class="form-item"><h1>Enter Details For CHF Detection</h1></div>
@@ -168,19 +162,19 @@
           <form method="POST" action="{{data.PatientId}}">
           {{ hfform.hidden_tag() }}
           <div class="form-item"><h1>Enter Details For HF Clasification</h1></div>
-          <div class="form-item"> {{ hfform.Pulse(placeholder='Pulse') }}</div>
+          <div class="form-item"> {{ hfform.Pulse2(placeholder='Pulse') }}</div>
           <div class="form-item">{{
           hfform.SystolicBP(placeholder='Systolic Blood Presure') }}</div>
           <div class="form-item">{{hfform.LVEDD(
           placeholder=' Left Ventricular End Diastolic Diameter LV') }}</div>
-          <div class="form-item">{{hfform.BNP(placeholder='Brain Natriuretic Peptide') }}</div>
+          <div class="form-item">{{hfform.BNP2(placeholder='Brain Natriuretic Peptide') }}</div>
           <div class="form-item">{{
           hfform.CreatnineKinase(placeholder='Creatnine Kinase') }}</div>
           <div class="form-item">{{
           hfform.Cholestrol( placeholder='Cholestrol') }} </div>
           <div class="form-item"> {{ hfform.CEM(
           placeholder='Creatinine Enzymetic Method') }}</div>
-          <div class="form-item">{{ hfform.Potassium(
+          <div class="form-item">{{ hfform.Potassium2(
           placeholder='Potassium') }}</div>
           
          <p>{{message2}}</p>
@@ -193,8 +187,6 @@
             </div>     
             </form>           
         </div>
-      
-        <!-- <span class="close">&times;</span> -->
       </div>
     </div>
     <div id="rest" class="popUp popup_hide">
@@ -205,12 +197,12 @@
       </div>
       {% if formnum==2 %}
     <script>
-      document.getElementById('chf-form').style.display = 'block';
+      document.getElementById('chf-form').style.display = 'flex';
     </script>
     {% endif%}
     {% if formnum==3 %}
     <script>
-      document.getElementById('hfform').style.display = 'block';
+      document.getElementById('hfform').style.display = 'flex';
     </script>
     {% endif%}
   </body>
@@ -222,24 +214,24 @@
       var span = document.getElementsByClassName('close')[0];
 
       btn.onclick = function () {
-        modal.style.display = 'block';
+        modal.style.display = 'flex';
       };
       var modal2 = document.getElementById('hfform');
       var btn2 = document.getElementById('hf');
       var span2 = document.getElementsByClassName('close')[0];
        btn2.onclick = function () {
-        modal2.style.display = 'block';
+        modal2.style.display = 'flex';
       };
 
       var modal3 = document.getElementById('rest');
 
       var btn3 = document.getElementById('restbtn');
       btn3.onclick = function () {
-        modal3.style.display = 'block';
+        modal3.style.display = 'flex';
       };
          var btn4 = document.getElementById('restbtn2');
       btn4.onclick = function () {
-        modal3.style.display = 'block';
+        modal3.style.display = 'flex';
       };
          
       
