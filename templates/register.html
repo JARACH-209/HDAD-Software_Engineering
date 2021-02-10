@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Register</title>
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', filename='css/main.css')}}"
-    />
+    
     <link
       rel="stylesheet"
       href="{{url_for('static', filename='css/login.css')}}"
@@ -28,25 +25,21 @@
       <div class="container1">
         <form method="POST" action="/register">
         {{ form.hidden_tag() }}
-        <div class="container1-1"><h1>Enter Your Details</h1></div>
-        <div class="container-filler">
+        <h1>Enter Your Details</h1>
+        
           <h2>{{message}}</h2>
-        </div>
-
-        <div class="container1-2">{{ form.DocName(placeholder='Name') }}</div>
-        <div class="container1-3">
+        
+       {{ form.DocName(placeholder='Name') }}
+       
           {{ form.DocHospital(placeholder='Hospital') }}
-        </div>
-        <div class="container1-3">
+        
+        
           {{ form.Email(placeholder='Email') }}
-        </div>
-        <div class="container1-4">
+        
           {{ form.password(placeholder='Password') }}
-        </div>
-        <div class="container1-5">
+  
           <button type="submit">SIGN UP</button>
           </form>
-        </div>
       </div>
     </div>
     
