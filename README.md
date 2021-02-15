@@ -1,6 +1,6 @@
 ---
 Type: Web-App
-description: "HDAD : Heart Diagnostics and Analytics Dashboard"
+description: "Platform offering ML-based Heart diagnostics and Analytics tools"
 languages:
 - Python
 - HTML/CSS
@@ -11,9 +11,10 @@ products:
 - azure-app-service
 ---
 
-# Python Flask sample for Azure App Service (Linux)
+# HDAD : Heart Diagnostics and Analytics Dashboard
 
-Heart Diagnostics and Analytics Dashboard is 
-For instructions on running and deploying the code, see [Quickstart: Create a Python app in Azure App Service on Linux](https://docs.microsoft.com/azure/app-service/quickstart-python).
+HDAD aims to bring a multitude of state-of-the-art and latest Machine Learning research in Healthcare to every clinician, anywhere and anytime. Make accurate predictions and diagnosis of patients. Take data-driven prognostic decisions based on results from Models and professional expertise  
 
-## Contributing
+## Contributors
+- Achal Dxit
+- Ashish Mishra
