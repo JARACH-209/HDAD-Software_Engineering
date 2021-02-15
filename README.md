@@ -5,10 +5,11 @@ Languages:
 - Python
 - HTML/CSS
 Products:
-- Flask
-- SQLite/PostgreSQL
-- Azure VM
-- azure-app-service
+-Flask
+-SQLite/PostgreSQL
+-Azure VM
+-azure-app-service
+
 ---
 
 # HDAD : Heart Diagnostics and Analytics Dashboard
