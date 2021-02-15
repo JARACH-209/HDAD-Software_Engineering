@@ -1,10 +1,10 @@
 ---
-Type: Web-App
-description: "Platform offering ML-based Heart diagnostics and Analytics tools"
-languages:
+Type: Web-app
+Description: "Platform offering ML-based Heart diagnostics and Analytics tools"
+Languages:
 - Python
 - HTML/CSS
-products:
+Products:
 - Flask
 - SQLite/PostgreSQL
 - Azure VM
