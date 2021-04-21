@@ -6,7 +6,7 @@ Languages:
 - HTML/CSS
 Products:
 - Flask
-- SQLite/PostgreSQL
+- PostgreSQL|SQLAlchemy
 - Azure VM
 - azure-app-service
 
