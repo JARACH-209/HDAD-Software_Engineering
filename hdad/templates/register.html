@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="{{url_for('static', filename='images/favicon.svg')}}" type="image/gif" sizes="16x16">
+    <title>Register</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/main.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/login.css')}}"
+    />
+  </head>
+  {% import "bootstrap/wtf.html" as wtf %}
+  <body>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a class="middle" href="{{url_for('index')}}" class="home">Home</a>
+      </div>
+      <div class="navbar-right">
+        <a href="{{ url_for('login') }}" class="profile">Sign In</a>
+        <a href="{{ url_for('register') }}" class="logout">Sign Up</a>
+      </div>
+    </div>
+    <div class="flex-container">
+        <form method="POST" action="/register">
+          <div class="flex-item"><h1>Create Your Account</h1></div>
+          <div class="flex-item alert"><p>{{message}}</p></div>
+          {{ form.hidden_tag() }}
+          {% for field, errors in form.errors.items() %}
+            <div class="alert alert-error">
+              {{ form[field].label }}: {{ ', '.join(errors) }}
+            </div>
+          {% endfor %}
+          <div class="flex-item flex-input">{{ form.DocName.label }}</div>
+          <div class="flex-item flex-input">{{ form.DocName }}</div>
+          <div class="flex-item flex-input">{{ form.DocHospital.label }}</div>
+          <div class="flex-item flex-input">{{ form.DocHospital }}</div>
+          <div class="flex-item flex-input">{{ form.Email.label}}</div>
+          <div class="flex-item flex-input">{{ form.Email}}</div>
+          <div class="flex-item flex-input">{{ form.password.label }}</div>
+          <div class="flex-item flex-input">{{ form.password }}</div>
+          <div class="flex-item flex-input">{{ form.Confirmpassword.label }}</div>
+          <div class="flex-item flex-input">{{ form.Confirmpassword }}</div>
+          <div class="flex-item"><p>Minimum 8 and Maximum 80 characters</p></div>
+          <div class="flex-item"><button type="submit">Sign Up</button></div>
+        </form>
+    </div>
+  </body>
+</html>

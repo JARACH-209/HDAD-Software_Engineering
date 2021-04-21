@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="{{url_for('static', filename='images/favicon.svg')}}" type="image/gif" sizes="16x16">
+    <title>Patient Deatails</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/main.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/login.css')}}"
+    />
+    <link
+    rel="stylesheet"
+    href="{{url_for('static', filename='css/dashboard.css')}}"
+  />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/PatientDetails.css')}}"
+    />
+   
+  </head>
+  {% import "bootstrap/wtf.html" as wtf %}
+  <body>
+    <div class="navbar">
+      <div class="navbar-left">
+        <a class="middle" href="{{url_for('index')}}" class="home">Home</a>
+      </div>
+      <div class="navbar-right">
+        <a class="middle" href="{{url_for('dashboard')}}" class="dashboard">Dashboard</a>
+        <a class="middle" href="{{ url_for('UserProfile') }}" class="profile">{{name}}</a> 
+        <a class="middle" href="{{ url_for('logout') }}" class="logout">Logout</a>
+      </div>
+    </div>
+      <div class="container">
+        <div class="container1">
+          <div class="container1-1">
+            <p>{{ data.PatientId}}</p>
+          </div>
+          <div class="container1-2">
+            <p>Name : {{data.PatientName}}</p>
+            {% if data!='None' %}
+            <p>Date Created : {{data.PatientDate.strftime("%d/%m/%Y")}}</p>
+            {% endif %}
+            <p>Time : {{data.PatientDate.strftime("%H:%M:%S")}}</p>
+            <p>Diagnostics Date : {{ dd}}</p>
+          </div>
+          <div class="container1-3">
+            <button  style="width: 300px;"  id="alert">NOTIFY PATIENT</button>
+            
+          </div>
+          <div class="container1-3">
+            
+          </div>
+          
+        </div>
+        <div class="container2">
+          <div class="container2-1">
+            
+
+            <button class="button-popup" id="chf">
+              CHF DETECTION
+            </button>
+
+            <button class="button-popup" id="hf">HF CLASSIFICATION</button>
+            <button class="button-popup" id="heartdisease">HEART DISEASE</button>
+         
+          </div>
+          <div class="container2-mid">
+            <button class="button-popup" id="complete">
+              DIAGNOSTIC
+            </button>
+
+            <button class="button-popup" id="stats">STATISTICS</button>
+            <button class="button-popup" id="patient">UPLOAD</button>
+            <!-- <button class="button-popup" id="upldbtn"></button> -->
+          </div>
+          
+         
+          <div class="container2-2">
+           
+          </div>
+          <div class="container2-3">
+            <table class="fixed_header">
+              <thead>
+                <tr>
+                  <th>S.no</th>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>CHF</th>
+                  <th>Heart Failure</th>
+                  <th>Heart Disease</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% set sno=namespace(value=1) %} {% for row in diagdata %}
+                <tr>
+                  <td>{{sno.value}}</td>
+                  <td>{{row.DiagnosticsDate.strftime("%d/%m/%Y")}}</td>
+                  <td>{{row.DiagnosticsDate.strftime("%H:%M:%S")}}</td>
+                  {% set temp=namespace(value=0) %}
+                  {% if row.DiagnosticsFor==1 %}
+                  {% for row3 in heartlist %}    {% if row3.DiagnosticsId==row.id %}
+                <td>-</td>
+                <td>-</td>
+                {% if row3.Result=="Yes" %}
+                    <td class="red">Yes</td>
+                    {% elif row3.Result=="No" %}
+                    <td class="green">No</td>
+                    {% endif %}
+                {% endif %}{% endfor %}
+                  {% elif row.DiagnosticsFor==2 %} {% for row2 in chf %} {% if
+                  row2.DiagnosticsId==row.id %}
+                 {% if row2.Result=="Yes" %}
+                    <td class="red">Yes</td>
+                    {% elif row2.Result=="No" %}
+                    <td class="green">No</td>
+                    {% endif %}
+                  <td>-</td>
+                  <td>-</td>
+                  {% endif %} {% endfor %} {% elif row.DiagnosticsFor==3 %} {% for row3 in hf %} {% if
+                  row3.DiagnosticsId==row.id %}
+                  <td>-</td>
+                  
+                  <td>{{ row3.Result}}</td>
+                  <td>-</td>
+                  {% endif %} {% endfor %} 
+                  {% elif row.DiagnosticsFor==4 %}
+                  {% set  temp.value = 0  %}
+                  {% for row2 in chf %}  {% if row2.DiagnosticsId==row.id %}
+                    {% set temp.value =  1 %}
+                   {% if row2.Result=="Yes" %}
+                      <td class="red">Yes</td>
+                      {% elif row2.Result=="No" %}
+                      <td class="green">No</td>
+                      {% endif%}
+                      {% endif%}
+                      {% endfor %}
+                      {% if temp.value==0 %}
+                      <td>-</td>
+                      {% endif%}
+                      {% set temp.value = 0 %}
+                  {% for row3 in hf %}  {% if
+                    row3.DiagnosticsId==row.id %}
+                    {% set temp.value =  1 %}
+                    <td>{{ row3.Result}}</td>
+                    {% endif%}
+                    {% endfor %}
+                    {% if temp.value==0 %}
+                    <td>-</td>
+                    {% endif%}
+                    {% set temp.value = 0 %} 
+                  {% for row3 in heartlist %}   {% if row3.DiagnosticsId==row.id %}
+                  {% set temp.value =  1 %} 
+                  {% if row3.Result=="Yes" %}
+                  <td class="red">Yes</td>
+                  {% elif row3.Result=="No" %}
+                  <td class="green">No</td>
+                  {% endif %}                   
+                    {% endif%}
+                    {% endfor %}
+                    {% if temp.value==0 %}
+                    <td>-</td>
+                    {% endif%}
+                
+                
+                  {% endif %}
+                </tr>
+                {% set sno.value = sno.value + 1 %} {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div id="chfform" class="popUp popup_hide chfpopUp">
+        <div class="popUp-content">
+          <form method="POST" action="{{data.PatientId}}">
+            {{ chfform.hidden_tag() }}
+            <div class="form-item"><h1>Enter Details For CHF Detection</h1></div>
+            <p>{{messagechf}}</p>            
+            <div class="form-item">{{ chfform.Pulse.label }}</div>
+            <div class="form-item">{{ chfform.Pulse(placeholder="Normal : 60–100 beats per minute") }}</div>
+            <div class="form-item">{{chfform.BNP.label }}</div>
+            <div class="form-item">{{chfform.BNP(placeholder="Normal : below 400pg/mL") }}</div>
+            <div class="form-item">{{ chfform.Cystatin.label }}</div>
+            <div class="form-item">{{ chfform.Cystatin(placeholder="Normal : 0.6-1 mg/L") }}</div>
+            <div class="form-item">{{ chfform.Potassium.label }}</div>
+            <div class="form-item">{{ chfform.Potassium(placeholder="Normal : 3.6-5.2 mmol/L") }}</div>
+            <div class="form-item">{{ chfform.NYHA.label }} </div>
+            <div class="form-item">{{ chfform.NYHA }} </div>
+            <div class="form-item">{{ chfform.Killip.label }}</div>
+            <div class="form-item">{{ chfform.Killip }}</div>
+            <div class="form-item">
+              <button type="submit" name="submitchf" value="submitchf">
+                SUBMIT
+              </button>
+              <button type="submit" name="savechf" value="savechf">SAVE</button>
+            </div>
+
+            <div class="form-item"></div>
+          </form>
+        </div>
+        
+      </div>
+      <div id="hfform" class="popUp popup_hide hfpopUp">
+        <div id="hfpopup" class="popUp-content">
+          <form method="POST" action="{{data.PatientId}}">
+          {{ hfform.hidden_tag() }}
+          <div class="form-item"><h1>Enter Details For HF Clasification</h1></div>
+          <p>{{messagehf}}</p>
+          <div class="form-item">{{ hfform.Pulse2.label }} </div>
+          <div class="form-item">{{ hfform.Pulse2(placeholder="Normal : 60–100 beats per minute") }} </div>
+          <div class="form-item">{{ hfform.SystolicBP.label }} </div>
+          <div class="form-item">{{ hfform.SystolicBP(placeholder="Normal : 90-120 mm/Hg") }} </div>
+          <div class="form-item">{{ hfform.BMI.label }} </div>
+          <div class="form-item">{{ hfform.BMI(placeholder="Normal : 18.5-24.9 kg/m^2") }} </div>
+          <div class="form-item">{{ hfform.LVEDD.label }} </div>
+          <div class="form-item">{{ hfform.LVEDD(placeholder="Normal : 39-59 mm") }} </div>
+          <div class="form-item">{{ hfform.BNP2.label }}</div>
+          <div class="form-item">{{ hfform.BNP2(placeholder="Normal : below 400pg/mL") }}</div>
+          <div class="form-item">{{ hfform.CreatnineKinase.label }}</div>
+          <div class="form-item">{{ hfform.CreatnineKinase(placeholder="Normal : 22-198 U/L ( units per liter )") }}</div>
+          <div class="form-item">{{ hfform.Cholestrol.label }}</div>
+          <div class="form-item">{{ hfform.Cholestrol(placeholder="Normal : below 5.2 mmol/L") }}</div>
+          <div class="form-item">{{ hfform.CEM.label }}</div>
+          <div class="form-item">{{ hfform.CEM(placeholder="Normal : 44-106 umol/L") }}</div>
+          <div class="form-item">{{ hfform.Potassium2.label }}</div>
+          <div class="form-item">{{ hfform.Potassium2(placeholder="Normal : 3.6-5.2 mmol/L") }}</div>
+          <div class="form-item">
+
+              <button type="submit" name="submithf" value="submithf">
+                SUBMIT
+              </button>
+              <button type="submit" name="save" value="save">SAVE</button>
+            </div>     
+            </form>           
+        </div>
+      
+      </div>
+
+      <div id="completeform" class="popUp popup_hide completepopUp">
+        <div  class="popUp-content completecontent">
+          <form method="POST" action="{{data.PatientId}}">
+            {{ completeform.hidden_tag() }}
+            <div class="form-item">
+              <h1>Enter Details For Complete Diagnostics</h1>
+            </div>
+            <p>{{messagechfcomplete}}</p>
+            <p>{{messagehfcomplete}}</p>
+            <p>{{ messageheartcomplete }}</p>
+            <div class="form-item">{{ completeform.Pulse4.label }}</div>
+            <div class="form-item">{{ completeform.Pulse4(placeholder="Normal : 60-100 beats per minute") }}</div>
+            <div class="form-item">{{ completeform.BNP4.label }}</div>
+            <div class="form-item">{{ completeform.BNP4(placeholder="Normal : below 400 pg/mL ") }}</div>
+            <div class="form-item">{{ completeform.Cystatin4.label }}</div>
+            <div class="form-item">{{ completeform.Cystatin4(placeholder="Normal : 0.6-1 mg/L") }}</div>
+            <div class="form-item">{{ completeform.Potassium4.label }}</div>
+            <div class="form-item">{{ completeform.Potassium4(placeholder="Normal : 3.6-5.2 mmol?L") }}</div>
+            <div class="form-item">{{ completeform.SystolicBP4.label }} </div>
+            <div class="form-item">{{ completeform.SystolicBP4(placeholder="Normal : 90-120 mm/Hg") }} </div>
+            <div class="form-item">{{ completeform.BMI4.label }} </div>
+            <div class="form-item">{{ completeform.BMI4(placeholder="Normal : 18.5-24.9 kg/m^2") }} </div>
+            <div class="form-item">{{ completeform.LVEDD4.label }} </div>
+            <div class="form-item">{{ completeform.LVEDD4(placeholder="Normal : 39-59 mm") }} </div>
+            <div class="form-item">{{ completeform.CreatnineKinase4.label }}</div>
+            <div class="form-item">{{ completeform.CreatnineKinase4(placeholder="Normal : 22-198 U/L ( units per liter )") }}</div>
+            <div class="form-item">{{ completeform.Cholestrol4.label }}</div>
+            <div class="form-item">{{ completeform.Cholestrol4(placeholder="Normal : below 5.2 mmol/L") }}</div>
+            <div class="form-item">{{ completeform.CEM4.label }}</div>
+            <div class="form-item">{{ completeform.CEM4(placeholder="Normal : 44-106 mmol/L") }}</div>
+            <div class="form-item">{{ completeform.Age4.label }}</div>
+            <div class="form-item">{{ completeform.Age4 }}</div>
+            <div class="form-item">{{ completeform.BP4.label }}</div>
+            <div class="form-item">{{ completeform.BP4(placeholder="Normal : 90-120 mm/Hg") }}</div>
+            <div class="form-item">{{ completeform.Thalach4.label }}</div>
+            <div class="form-item">{{ completeform.Thalach4 }}</div>
+            <div class="form-item">{{ completeform.OldPeak4.label }}</div>
+            <div class="form-item">{{ completeform.OldPeak4 }}</div>
+            <div class="form-item">{{ completeform.Thal4.label }}</div>
+            <div class="form-item">{{ completeform.Thal4 }}</div>
+            <div class="form-item">{{ completeform.NYHA4.label }} </div>
+            <div class="form-item">{{ completeform.NYHA4 }} </div>
+            <div class="form-item">{{ completeform.Killip4.label }}</div>
+            <div class="form-item">{{ completeform.Killip4 }}</div>
+            <div class="form-item">{{ completeform.Sex4.label }} </div>
+            <div class="form-item">{{ completeform.Sex4 }} </div>
+            <div class="form-item">{{ completeform.CP4.label }}</div>
+            <div class="form-item">{{ completeform.CP4 }}</div>
+            <div class="form-item">{{ completeform.FBS4.label }}</div>
+            <div class="form-item">{{ completeform.FBS4 }}</div>
+            <div class="form-item">{{ completeform.ECG4.label }}</div>
+            <div class="form-item">{{ completeform.ECG4 }}</div>
+            <div class="form-item">{{ completeform.Exang4.label }}</div>
+            <div class="form-item">{{ completeform.Exang4 }}</div>
+            <div class="form-item">{{ completeform.Slope4.label }}</div>
+            <div class="form-item">{{ completeform.Slope4 }}</div>
+            <div class="form-item">{{ completeform.Ca4.label }}</div>
+            <div class="form-item">{{ completeform.Ca4 }}</div>
+            
+            <div class="form-item">
+              <button type="submit" name="submitcomplete" value="submitcomplete">
+                SUBMIT
+              </button>
+              <button type="submit" name="save" value="save">SAVE</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+    
+      <div id="statsform" class="popUp popup_hide">
+        <div id="statsmain" class="popUp-content">
+          <form method="post" action="{{data.PatientId}}">
+            {{ featureform.hidden_tag() }}
+            <div class="form-item"><h1>Select Feature</h1></div>
+            <div >
+              {{ featureform.Feature1 }} {{ featureform.Feature2 }}
+            </div>
+            <div class="form-item">  
+                <div id=statssubmit><button style="width: 250px;"  type="submit" name="featureform" value="featureform">SUBMIT</button></div>
+            </div>
+    </form>
+          <div id="graph">{{image|safe}}</div>
+        </div>
+      </div>
+       <div id="rest" class="popUp popup_hide">
+        <div id="" class="popUp-content">
+            </div><h1>ML MODEL FOR THIS FEATURE WILL BE ADDED SOON</h1>
+        </div>
+      </div>
+      <div  id="alertform" class="popUp popup_hide">
+        <div  class="popUp-content">
+         <form method="POST" action="{{data.PatientId}}">
+          {{ alert.hidden_tag() }}
+          <div class="form-item"><h1>Notify Patient</h1></div>
+          <div class="form-item"> {{ alert.email(placeholder='Patient Email') }}</div>
+          <div class="form-item">{{
+          alert.message(cols="35", rows="15") }}</div>
+          <div class="form-item">
+              <button type="submit" name="alert" value="alert">SEND</button>
+              
+        </div>
+     
+      </form>
+        </div>
+      </div>
+      <div id="heart-form" class="popUp popup_hide heartpopUp">
+        <div class="popUp-content ">
+          <div class="top-popup"></div>
+          <form method="POST" action="{{data.PatientId}}">
+            {{ heartform.hidden_tag() }}
+            <div class="form-item">
+              <h1>Enter Details For Heart Disease </h1>
+            </div>
+            <p>{{messageheart}}</p>
+            <div class="form-item">{{ heartform.Age.label }}</div>
+            <div class="form-item">{{ heartform.Age }}</div>
+            <div class="form-item">{{ heartform.BP.label }}</div>
+            <div class="form-item">{{ heartform.BP(placeholder="Normal : 90-120 mm/Hg") }}</div>
+            <div class="form-item">{{ heartform.CholestrolHeart.label }}</div>
+            <div class="form-item">{{ heartform.CholestrolHeart(placeholder="Normal : below 200mg/dL") }}</div>
+            <div class="form-item">{{ heartform.Thalach.label }}</div>
+            <div class="form-item">{{ heartform.Thalach }}</div>
+            <div class="form-item">{{ heartform.OldPeak.label }}</div>
+            <div class="form-item">{{ heartform.OldPeak }}</div>
+            <div class="form-item">{{ heartform.Thal.label }}</div>
+            <div class="form-item">{{ heartform.Thal }}</div>
+            <div class="form-item">{{ heartform.Sex.label }} </div>
+            <div class="form-item">{{ heartform.Sex }} </div>
+            <div class="form-item">{{ heartform.CP.label }}</div>
+            <div class="form-item">{{ heartform.CP }}</div>
+            <div class="form-item">{{ heartform.FBS.label }}</div>
+            <div class="form-item">{{ heartform.FBS }}</div>
+            <div class="form-item">{{ heartform.ECG.label }}</div>
+            <div class="form-item">{{ heartform.ECG }}</div>
+            <div class="form-item">{{ heartform.Exang.label }}</div>
+            <div class="form-item">{{ heartform.Exang }}</div>
+            <div class="form-item">{{ heartform.Slope.label }}</div>
+            <div class="form-item">{{ heartform.Slope }}</div>
+            <div class="form-item">{{ heartform.Ca.label }}</div>
+            <div class="form-item">{{ heartform.Ca }}</div>
+            <div class="flex-item">
+              <button  type="submit" name="submitheart" value="submitheart">
+                SUBMIT
+              </button>
+              <button type="submit" name="save" value="save">SAVE</button>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+    <div id="patientform" class="popUp popup_hide">
+        <div  class="popUp-content">
+            <form action = "{{data.PatientId}}" method = "POST" enctype="multipart/form-data"> 
+              <div class="form-item">
+                <label style="width: 250px;" class="upload" for="files">Browse</label>
+              </div>
+              <div class="form-item">
+                <input  type="file" id="files" name="file" accept=".csv" />
+              </div>
+              <div class="form-item">
+                <button  style="width: 250px;" name="csvu" value="csvu" type="submit" >Submit</button>
+              </div>
+            </form>
+            <br>
+              <div class="form-item">
+            <form method="POST" action="{{data.PatientId}}">
+              <div class="form-item"><button style="width: 250px;"    type="submit" name="download" value="download">Download</button></div>
+            </form>
+        </div>
+      </div>
+    </div>
+          
+
+
+      <div id="csvmessage" class="popUp popup_hide csvmessagepopUp">
+        <div class="popUp-content ">
+            <div class="form-item">
+              <h1>Diagnostics Run Sucessful</h1>
+            </div>
+            <div class="form-item">
+              <p>Diagnostics Detected : {{diagnosticsDetectionCounter }}</p>
+            </div>
+            <div class="form-item">
+              <p>Diagnostics Executed : {{diagnosticsExecutionCounter }}</p>
+            </div>
+  
+        </div>
+      </div>
+    {% if form==3 %}
+    <script>
+      document.getElementById('hfform').style.display = 'flex';
+    </script>
+    {% endif%}
+    {% if form==4 %}
+    <script>
+      document.getElementById('statsform').style.display = 'flex';
+    </script>
+    {% endif%} 
+    {% if form==5 %}
+    <script>
+      document.getElementById('heart-form').style.display = 'flex';
+    </script>
+    {% endif%}  
+    {% if form==6 %}
+    <script>
+      document.getElementById('completeform').style.display = 'flex';
+    </script>
+    {% endif%}
+    {% if form==7 %}
+    <script>
+      document.getElementById('csvmessage').style.display = 'flex';
+    </script>
+    {% endif%}  
+    {% if form==2 %}
+    <script>
+      document.getElementById('chfform').style.display = 'flex';
+    </script>
+    {% endif%}
+    
+    <script>
+    
+    var modal1 = document.getElementById('chfform');
+    var btn1 = document.getElementById('chf');
+    
+    btn1.onclick = function () {
+      modal1.style.display = 'flex';
+    };
+
+    var modal2 = document.getElementById('hfform');
+    var btn2 = document.getElementById('hf');
+    
+    btn2.onclick = function () {
+      modal2.style.display = 'flex';
+    };
+
+    var modal3 = document.getElementById('completeform');
+    var btn3 = document.getElementById('complete');
+    
+    btn3.onclick = function () {
+      modal3.style.display = 'flex';
+    };
+    var modal4 = document.getElementById('statsform');
+    var btn4 = document.getElementById('stats');
+    
+    btn4.onclick = function () {
+      modal4.style.display = 'flex';
+    };
+    var modal5 = document.getElementById('patientform');
+    var btn5 = document.getElementById('patient');
+    
+    btn5.onclick = function () {
+      modal5.style.display = 'flex';
+    };
+
+    var modal6 = document.getElementById('alertform');
+    var btn6 = document.getElementById('alert');
+    
+    btn6.onclick = function () {
+      modal6.style.display = 'flex';
+    };
+
+    var modal7 = document.getElementById('heart-form');
+    var btn7 = document.getElementById('heartdisease');
+    
+    btn7.onclick = function () {
+      modal7.style.display = 'flex';
+    };
+    var modal8 = document.getElementById('csvmessage');
+
+    window.onclick = function (event) {
+       if (event.target == modal1) {
+        modal1.style.display = 'none';
+      }
+      if (event.target == modal2) {
+        modal2.style.display = 'none';
+      }
+      if (event.target == modal3) {
+        modal3.style.display = 'none';
+      }
+      if (event.target == modal4) {
+        modal4.style.display = 'none';
+      }
+      if (event.target == modal5) {
+        modal5.style.display = 'none';
+      }
+      if (event.target == modal6) {
+        modal6.style.display = 'none';
+      }
+      if (event.target == modal7) {
+        modal7.style.display = 'none';
+      }
+      if (event.target == modal8) {
+        
+        window.open("{{data.PatientId}}", "_self");
+
+      }
+    
+    };
+
+    </script>
+   
+  </body>
+</html>

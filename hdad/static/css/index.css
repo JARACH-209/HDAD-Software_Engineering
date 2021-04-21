@@ -1,0 +1,33 @@
+
+.flex-container{
+  width: 70vw;
+  text-align: center;
+  margin: auto;
+}
+
+.flex-item h1 {
+  font-size: 40px;
+}
+.flex-item p {
+  font-size: 30px;
+}
+
+
+@media (max-width: 700px) {
+  
+  .flex-item h1 {
+    font-size: 20px;
+  }
+  .flex-item p {
+    font-size: 15px;
+  }
+  .flex-item button {
+    margin-top: 100px;
+  }
+  
+}
+
+@media (max-width: 400px) {
+  .flex-item button {
+    margin-top: 50px; }
+}

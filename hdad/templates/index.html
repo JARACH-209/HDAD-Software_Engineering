@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="{{url_for('static', filename='images/favicon.svg')}}" type="image/gif" sizes="16x16">
+    <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/main.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='css/index.css')}}"
+    />
+  </head>
+  <body>
+     <div class="navbar">
+      <div class="navbar-left">
+        <a href="{{url_for('index')}}" class="home">Home</a>
+      </div>
+      <div class="navbar-right">
+        <a href="{{ url_for('login') }}" class="profile">Sign In</a>
+        <a href="{{ url_for('register') }}" class="logout">Sign Up</a>
+      </div>
+    </div>
+      <div class="flex-container">
+            <div class="first-item"></div> 
+            <div class="flex-item "><h1>HDAD</h1></div>
+            <div class="flex-item"><h1>Heart Diagnostics and Analytics Dashboard</h1></div>
+            <div class="flex-item"><p>HDAD aims to bring a multitude of state of the art and latest Machine Learning research in Healthcare to every clinician, anywhere and anytime. Make accurate predictions and diagnosis of patients. Take data-driven prognostic decisions based on results from Models and professional expertise</p></div>
+            <div class="flex-item "><button><a href="{{ url_for('register') }}">Sign Up</a</button></div>
+            <div class="last-item"></div>
+        
+    </div>
+      
+  </body>
+</html>
