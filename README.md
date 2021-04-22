@@ -49,5 +49,6 @@ run flask app
 python app.py
 ```
 ## Supported on
-
+- Mozilla, Chrome and Safari
+- Windows, iOS and Android
 
