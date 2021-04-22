@@ -14,7 +14,9 @@ Products:
 
 # HDAD : Heart Diagnostics and Analytics Dashboard
 
-HDAD aims to bring a multitude of state-of-the-art and latest Machine Learning research in Healthcare to every clinician, anywhere and anytime. Make accurate predictions and diagnosis of patients. Take data-driven prognostic decisions based on results from Models and professional expertise  
+HDAD aims to bring a multitude of state-of-the-art and latest Machine Learning research in Healthcare to every clinician, anywhere and anytime. Make accurate predictions and diagnosis of patients. Take data-driven prognostic decisions based on results from Models and professional expertise.
+
+![alt text](https://github.com/JARACH-209/Software_Engineering_Project/blob/master/Documents/PlatformScreenshots/Screenshot%20(3)-Macbook.png?raw=True)
 
 ## Contributors
 - Achal Dxit
