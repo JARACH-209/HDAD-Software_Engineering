@@ -17,7 +17,7 @@ Products:
 HDAD aims to bring a multitude of state-of-the-art and latest Machine Learning research in Healthcare to every clinician, anywhere and anytime. Make accurate predictions and diagnosis of patients. Take data-driven prognostic decisions based on results from Models and professional expertise.
 
 <img src="https://github.com/JARACH-209/Software_Engineering_Project/blob/master/Documents/PlatformScreenshots/Screenshot%20(3)-Macbook.png?raw=True" width="450" height="250"> <img src="https://github.com/JARACH-209/Software_Engineering_Project/blob/master/Documents/PlatformScreenshots/Screenshot%20(5)-Macbook.png?raw=True" width="450" height="250">
- <img src="https://github.com/JARACH-209/Software_Engineering_Project/blob/master/Documents/PlatformScreenshots/Screenshot_2021-04-21-11-36-55-21-Galaxy%20S8.png?raw=True" width="200" height="350">
+<img src="https://github.com/JARACH-209/Software_Engineering_Project/blob/master/Documents/PlatformScreenshots/Screenshot_2021-04-21-11-35-05-15-Galaxy%20S8.png?raw=True" width="200" height="350"> <img src="https://github.com/JARACH-209/Software_Engineering_Project/blob/master/Documents/PlatformScreenshots/Screenshot_2021-04-21-11-36-55-21-Galaxy%20S8.png?raw=True" width="200" height="350"> <img src="https://github.com/JARACH-209/Software_Engineering_Project/blob/master/Documents/PlatformScreenshots/Screenshot_2021-04-21-11-37-00-52-Galaxy%20S8.png?raw=True" width="200" height="350">
 
 
 ## Contributors
