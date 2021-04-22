@@ -33,6 +33,12 @@ Dillinger requires python 3.7+ to run.
 Clone the repository and extract all the files in a folder .
 Open the folder in terminal or cmd
 
+Create a Virtual environment:
+
+```sh
+python -m venv venv
+```
+
 Activate virtual environment
 
 ```sh
