@@ -3,7 +3,7 @@ Type: Web-app
 Description: "Platform offering ML-based Heart diagnostics and Analytics tools"
 Languages:
 - Python
-- HTML/CSS
+- JS/HTML/CSS
 Products:
 - Flask
 - PostgreSQL|SQLAlchemy
