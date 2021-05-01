@@ -20,6 +20,14 @@ HDAD aims to bring a multitude of state-of-the-art and latest Machine Learning r
 
 <img src="https://github.com/JARACH-209/Software_Engineering_Project/blob/master/Documents/PlatformScreenshots/Screenshot_2021-04-21-11-35-05-15-Galaxy%20S8.png?raw=True" width="200" height="350"> <img src="https://github.com/JARACH-209/Software_Engineering_Project/blob/master/Documents/PlatformScreenshots/Screenshot_2021-04-21-11-36-55-21-Galaxy%20S8.png?raw=True" width="200" height="350"> <img src="https://github.com/JARACH-209/Software_Engineering_Project/blob/master/Documents/PlatformScreenshots/Screenshot_2021-04-21-11-37-00-52-Galaxy%20S8.png?raw=True" width="200" height="350">
 
+## Documentaions
+All the Documents are available in the repository ./Documents.
+List of available documentations are :
+- User Manual
+- Code Documentation
+- Data Flow Diagnrams
+- Software Requirement Specifications (SRS)
+- Basic Testing Report
 
 ## Contributors
 - Achal Dxit
