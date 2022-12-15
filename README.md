@@ -43,7 +43,9 @@ All the Documents are available in the repository ./Documents.
 List of available documentations are :
 - User Manual
 - Code Documentation
-- Data Flow Diagnrams
+- Data Flow Diagrams
+- <img src="https://github.com/JARACH-209/Software_Engineering_Project/blob/master/Documents/DFD_Level1.png?raw=True" width="200" height="350"> <img src="https://github.com/JARACH-209/Software_Engineering_Project/blob/master/Documents/PlatformScreenshots/Screenshot_2021-04-21-11-36-55-21-Galaxy%20S8.png?raw=True" width="200" height="350"> <img src="https://github.com/JARACH-209/Software_Engineering_Project/blob/master/Documents/PlatformScreenshots/Screenshot_2021-04-21-11-37-00-52-Galaxy%20S8.png?raw=True" width="450" height="350">
+- <img src="https://github.com/JARACH-209/Software_Engineering_Project/blob/master/Documents/DFD_Level0.png?raw=True" width="200" height="350"> <img src="https://github.com/JARACH-209/Software_Engineering_Project/blob/master/Documents/PlatformScreenshots/Screenshot_2021-04-21-11-36-55-21-Galaxy%20S8.png?raw=True" width="200" height="350"> <img src="https://github.com/JARACH-209/Software_Engineering_Project/blob/master/Documents/PlatformScreenshots/Screenshot_2021-04-21-11-37-00-52-Galaxy%20S8.png?raw=True" width="450" height="350">
 - Software Requirement Specifications (SRS)
 - Basic Testing Report
 
